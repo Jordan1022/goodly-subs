@@ -7,6 +7,7 @@ padding-top: 20px;
 background-color: #000;
 display: flex;
 justify-content: space-between;
+margin-bottom: 50px
   /* Your header styles here */
 `;
 
