@@ -4,7 +4,7 @@ import ContactForm from './ContactForm'; // Replace with the actual path to your
 import PricingTable from './PricingTable';
 
 const AppWrapper = styled.div`
-  background-color: #f0f4e6; /* Neutral Green */
+  background-color: #000; /* Neutral Green */
   color: #000; /* Neutral Gold */
   padding: 20px;
   font-family: Arial, sans-serif;
