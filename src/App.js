@@ -5,7 +5,7 @@ import PricingTable from './PricingTable';
 
 const AppWrapper = styled.div`
   background-color: #f0f4e6; /* Neutral Green */
-  color: #6b705c; /* Neutral Gold */
+  color: #000; /* Neutral Gold */
   padding: 20px;
   font-family: Arial, sans-serif;
   min-height: 100vh;
@@ -20,7 +20,7 @@ const LogoImage = styled.img`
 const Heading = styled.h1`
   font-size: 2.5rem;
   margin-bottom: 50px;
-  color: #000000;
+  color: #fff;
   font-family: Arial, sans-serif;
 `;
 
