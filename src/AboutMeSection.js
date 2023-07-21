@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const AboutMeWrapper = styled.div`
   display: flex;
+  padding-bottom: 50px;
   /* Your About Me section styles here */
 `;
 

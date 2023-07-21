@@ -32,9 +32,9 @@ const Header = () => {
     <HeaderWrapper>
       <Logo src="logo.svg" alt="Logo" />
       <Navigation>
-        <Tab href="#section1">About</Tab>
+        <Tab href="#section1">Services</Tab>
         <Tab href="#section2">Subs</Tab>
-        <Tab href="#section3">Testimonial</Tab>
+        <Tab href="#section3">Testimonials</Tab>
       </Navigation>
     </HeaderWrapper>
   );

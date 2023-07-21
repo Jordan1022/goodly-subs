@@ -3,14 +3,22 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterWrapper = styled.div`
+height: 300px;
   /* Your footer styles here */
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
 `;
 
 const LinkedInLink = styled.a`
+margin-top: auto;
+color: #fff;
   /* Your LinkedIn link styles here */
 `;
 
 const EmailLink = styled.a`
+margin-top: auto;
+color: #fff;
   /* Your email link styles here */
 `;
 
