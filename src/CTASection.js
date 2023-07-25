@@ -21,7 +21,7 @@ const Heading2 = styled.h2`
   color: #fff; /* White font color */
 `;
 
-const Button = styled.button`
+const Button1 = styled.button`
   /* Your button styles here */
   font-size: 1.5rem;
   padding: 10px 20px;
@@ -39,12 +39,33 @@ const Button = styled.button`
   }
 `;
 
+const Button2 = styled.button`
+/* Your button styles here */
+font-size: 1.5rem;
+padding: 10px 20px;
+margin-right: 10px;
+background-color: #fff;
+color: #193b17; /* Dark green font color */
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease-in-out;
+
+&:hover {
+  background-color: #1da90a; /* Bright green background on hover */
+  color: #fff; /* White font color on hover */
+}
+@media (max-width: 420px) {
+  margin-top: 10px;
+}
+`;
+
 const CTASection = () => {
   return (
     <CTAWrapper>
       <Heading2>Taking the stress out of Technology for Business</Heading2>
-      <Button>Services</Button>
-      <Button>Subscriptions</Button>
+      <Button1>Services</Button1>
+      <Button2>Subscriptions</Button2>
     </CTAWrapper>
   );
 };

@@ -20,17 +20,22 @@ const ImageOfMe = styled.img`
   /* Your image styles here */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /* Define styles for screens smaller than 768px */
+  @media (max-width: 780px) {
+    width: 100%; /* Adjust image size on smaller screens */
+  }
 `;
 
 const MainPointsWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 30px;
+  justify-content: space-between;
+  margin: auto 20px;
+  padding: 0 20px;
 `;
 
 const MainPoint = styled.div`
   margin-bottom: 20px;
+  width: 50%;
 `;
 
 const Icon = styled.i`
@@ -53,20 +58,54 @@ const AboutMeSection = () => {
       <MainPointsWrapper>
         <MainPoint>
           <Icon className="icon1" />
+          <h2>What we offer:</h2>
           <PointText>
-            What we offer: Automation & Integration Packages - automated processes,
-            creation of workflows, integration between apps (integrating one app with another),
-            software management, web development, bug fixes, web maintenance,
-            hosting and domain management, technical problem solving, and IT support
+            <ul>
+            <li>
+            Automation & Integration
+            </li>
+            <li>
+              Business workflows
+              </li>
+            <li>
+            software management
+            </li>
+            <li>
+            web development
+            </li>
+            <li>
+            hosting and domain management
+            </li>
+            <li>
+            technical problem solving
+            </li>
+            <li>
+             IT support
+            </li>
+            </ul>
           </PointText>
         </MainPoint>
         <MainPoint>
           <Icon className="icon2" />
+          <h2>What that looks like:</h2>
           <PointText>
-            What that looks like: Social media and business website in sync.
-            Website Apps for your biz working seamlessly.
+            <ul>
+            <li>
+              Sales and marketing automation.
+            </li>
+            <li>
+            Social media and business website in sync.
+            </li>
+            <li>
+            Business Applications working seamlessly
+            </li>
+            <li>
             Glitches, bugs and website problems addressed.
-            And getting any problems with your website, workflow, and specialized business software addressed in real-time.
+            </li>
+            <li>
+            Business website and email hosting.
+            </li>
+            </ul>
           </PointText>
         </MainPoint>
       </MainPointsWrapper>

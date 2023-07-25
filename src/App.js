@@ -15,6 +15,9 @@ const AppWrapper = styled.div`
   color: #fff; /* White font color */
   padding: 0 50px; /* Margin on the left and right */
   font-family: 'Poppins', sans-serif; /* Apply Poppins font as the default font */
+  @media (max-width: 1100px) { 
+    padding: 0;
+  }
 `;
 
 const App = () => {

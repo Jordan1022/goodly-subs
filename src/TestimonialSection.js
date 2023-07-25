@@ -10,6 +10,12 @@ const TestimonialWrapper = styled.div`
   padding: 40px;
   border-radius: 8px;
   margin-bottom: 40px;
+  @media (max-width: 900px) {
+    flex-direction: column; /* Change to column layout on smaller screens */
+    padding: 20px; /* Reduce padding on smaller screens */
+    /* Add any other styles you want to change for smaller screens */
+  }
+
 `;
 
 const TestimonialText = styled.p`

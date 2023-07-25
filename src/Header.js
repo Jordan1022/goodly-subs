@@ -14,7 +14,13 @@ margin-bottom: 50px
 
 const Logo = styled.img`
 width: 200px;
-
+margin-left: 20px;
+@media (max-width: 760px) {
+width: 150px;
+}
+@media (max-width: 500px) {
+  width: 80px;
+}
   /* Your logo styles here */
 `;
 

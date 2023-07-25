@@ -8,6 +8,10 @@ height: 300px;
   display: flex;
   justify-content: space-between;
   width: 150px;
+  padding-bottom:20px;
+  @media (max-width: 1100px) {
+  padding-left: 20px;
+  }
 `;
 
 const LinkedInLink = styled.a`
