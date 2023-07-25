@@ -18,6 +18,14 @@ const TestimonialWrapper = styled.div`
 
 `;
 
+const TestimonialTitle = styled.h2`
+  /* Your testimonial title styles here */
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #000; /* Dark green font color */
+  display: block;
+`;
+
 const TestimonialText = styled.p`
   /* Your testimonial text styles here */
   font-size: 1.2rem;
@@ -44,7 +52,10 @@ const TestimonialSection = () => {
 
   return (
     <TestimonialWrapper>
+      <div style={{display: 'block'}}>
+      <TestimonialTitle>From Becky:</TestimonialTitle>
       <TestimonialText>{testimonialText}</TestimonialText>
+      </div>
       <TestimonialImage src="christina.jpg" alt="Testimonial" />
     </TestimonialWrapper>
   );
