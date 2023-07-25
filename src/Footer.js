@@ -7,7 +7,7 @@ height: 300px;
   /* Your footer styles here */
   display: flex;
   justify-content: space-between;
-  width: 200px;
+  width: 150px;
 `;
 
 const LinkedInLink = styled.a`
@@ -25,7 +25,7 @@ color: #fff;
 const Footer = () => {
   return (
     <FooterWrapper>
-      <LinkedInLink href="https://www.linkedin.com/" target="_blank">
+      <LinkedInLink href="https://www.linkedin.com/in/jordan-allen-gd/" target="_blank">
         LinkedIn
       </LinkedInLink>
       <EmailLink href="mailto:yourname@example.com">Email</EmailLink>

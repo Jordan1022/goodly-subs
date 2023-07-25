@@ -6,6 +6,13 @@ const AboutMeWrapper = styled.div`
   display: flex;
   padding-bottom: 50px;
   /* Your About Me section styles here */
+  /* Define styles for screens smaller than 768px */
+  @media (max-width: 1100px) {
+    flex-direction: column; /* Change to column layout on smaller screens */
+    align-items: center; /* Center content on smaller screens */
+    padding-bottom: 20px; /* Reduce padding on smaller screens */
+    /* Add any other styles you want to change for smaller screens */
+  }
 `;
 
 const ImageOfMe = styled.img`
