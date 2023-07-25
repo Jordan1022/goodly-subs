@@ -1,6 +1,7 @@
 // Header.js
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const HeaderWrapper = styled.div`
 padding-top: 20px;
@@ -32,9 +33,9 @@ const Header = () => {
     <HeaderWrapper>
       <Logo src="logo.svg" alt="Logo" />
       <Navigation>
-        <Tab href="#section1">Services</Tab>
-        <Tab href="#section2">Subs</Tab>
-        <Tab href="#section3">Testimonials</Tab>
+        <Tab to="/services">Services</Tab>
+        <Tab to="/subs">Subs</Tab>
+        <Tab to="/testimonials">Testimonials</Tab>
       </Navigation>
     </HeaderWrapper>
   );
