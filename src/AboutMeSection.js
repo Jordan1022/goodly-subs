@@ -90,20 +90,17 @@ const AboutMeSection = () => {
           <h2>What that looks like:</h2>
           <PointText>
             <ul>
+              <li>
+                Processes that work for you.
+              </li>
             <li>
               Sales and marketing automation.
-            </li>
-            <li>
-            Social media and business website in sync.
             </li>
             <li>
             Business Applications working seamlessly
             </li>
             <li>
-            Glitches, bugs and website problems addressed.
-            </li>
-            <li>
-            Business website and email hosting.
+            Business website and email managed.
             </li>
             </ul>
           </PointText>
