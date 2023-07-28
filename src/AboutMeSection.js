@@ -54,7 +54,7 @@ color: #777; /* Lighter text color for improved readability */
 const AboutMeSection = () => {
   return (
     <AboutMeWrapper>
-      <ImageOfMe src="tolu.jpg" alt="You" />
+      <ImageOfMe src="bwprofile.png" alt="You" />
       <MainPointsWrapper>
         <MainPoint>
           <Icon className="icon1" />

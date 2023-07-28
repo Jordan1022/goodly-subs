@@ -8,10 +8,10 @@ const CTAWrapper = styled.div`
   background-color: #000; /* Black background */
   background-image: url('path/to/background-pattern.png'); /* Replace with the path to your background pattern image */
   background-repeat: repeat; /* Repeat the background pattern */
-  padding: 40px;
   border-radius: 10px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); /* Box shadow for a 3D effect */
   height: 400px;
+  padding: 80px 40px;
 `;
 
 const Heading2 = styled.h2`
