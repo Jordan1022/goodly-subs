@@ -32,7 +32,6 @@ const Button1 = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-
   &:hover {
     background-color: #1da90a; /* Bright green background on hover */
     color: #fff; /* White font color on hover */
