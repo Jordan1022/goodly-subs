@@ -53,7 +53,7 @@ color: #777; /* Lighter text color for improved readability */
 
 const AboutMeSection = () => {
   return (
-    <AboutMeWrapper>
+    <AboutMeWrapper id="about-me">
       <ImageOfMe src="bwprofile.png" alt="You" />
       <MainPointsWrapper>
         <MainPoint>

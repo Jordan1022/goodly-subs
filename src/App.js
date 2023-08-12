@@ -1,7 +1,6 @@
 // App.js
 import React from 'react';
 import styled from 'styled-components';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'; // Import BrowserRouter, Switch, and Route
 import Header from './Header';
 import CTASection from './CTASection';
 import AboutMeSection from './AboutMeSection';

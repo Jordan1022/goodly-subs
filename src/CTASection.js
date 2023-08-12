@@ -1,6 +1,7 @@
 // CTASection.js
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-scroll';
 
 const CTAWrapper = styled.div`
   font-family: 'Poppins', sans-serif;
@@ -21,7 +22,7 @@ const Heading2 = styled.h2`
   color: #fff; /* White font color */
 `;
 
-const Button1 = styled.button`
+const Button1 = styled(Link)`
   /* Your button styles here */
   font-size: 1.5rem;
   padding: 10px 20px;
@@ -38,7 +39,7 @@ const Button1 = styled.button`
   }
 `;
 
-const Button2 = styled.button`
+const Button2 = styled(Link)`
 /* Your button styles here */
 font-size: 1.5rem;
 padding: 10px 20px;
@@ -63,8 +64,26 @@ const CTASection = () => {
   return (
     <CTAWrapper>
       <Heading2>Taking the stress out of Technology for Business</Heading2>
-      <Button1>Services</Button1>
-      <Button2>Subscriptions</Button2>
+      <Button1
+      to="about-me"
+      smooth={true}
+      duration={500}
+      spy={true}
+      exact='true'
+      offset={-80}
+      >
+        Services
+        </Button1>
+      <Button2
+      to="pricing-table"
+      smooth={true}
+      duration={500}
+      spy={true}
+      exact='true'
+      offset={-80}
+      >
+        Subscriptions
+        </Button2>
     </CTAWrapper>
   );
 };

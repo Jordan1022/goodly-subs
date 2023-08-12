@@ -1,7 +1,7 @@
 // Header.js
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 
 const HeaderWrapper = styled.div`
 padding-top: 20px;
@@ -28,7 +28,7 @@ const Navigation = styled.div`
   /* Your navigation styles here */
 `;
 
-const Tab = styled.a`
+const Tab = styled(Link)`
 margin: 0 10px;
 color: #fff;
   /* Your tab styles here */
