@@ -4,7 +4,10 @@ import styled from 'styled-components';
 
 const AboutMeWrapper = styled.div`
   display: flex;
-  padding-bottom: 50px;
+  border-radius: 8px;
+  margin-bottom: 150px;
+  background-color: #fff;
+  
   /* Your About Me section styles here */
   /* Define styles for screens smaller than 768px */
   @media (max-width: 1100px) {
@@ -16,9 +19,10 @@ const AboutMeWrapper = styled.div`
 `;
 
 const ImageOfMe = styled.img`
-  width: 400px;
+  width: 350px;
   /* Your image styles here */
   border-radius: 8px;
+  margin: 25px 10px 25px 25px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   /* Define styles for screens smaller than 768px */
   @media (max-width: 780px) {

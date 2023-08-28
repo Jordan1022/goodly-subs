@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterWrapper = styled.div`
-height: 300px;
+height: 100px;
   /* Your footer styles here */
   display: flex;
   justify-content: space-between;

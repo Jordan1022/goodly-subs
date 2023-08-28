@@ -30,11 +30,10 @@ const App = () => {
        
             <AboutMeSection />
      
+            <PricingTable />
+
             <TestimonialSection />
         
-        
-            <PricingTable />
-         
         <Footer />
       </AppWrapper>
     
