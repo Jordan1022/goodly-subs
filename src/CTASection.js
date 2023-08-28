@@ -22,6 +22,14 @@ const Heading2 = styled.h2`
   color: #fff; /* White font color */
 `;
 
+const Heading3 = styled.h3`
+  /* Your H3 text styles here */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #fff;
+
+`;
+
 const Button1 = styled(Link)`
   /* Your button styles here */
   font-size: 1.5rem;
@@ -39,7 +47,7 @@ const Button1 = styled(Link)`
   }
 `;
 
-const Button2 = styled(Link)`
+const Button2 = styled.a`
 /* Your button styles here */
 font-size: 1.5rem;
 padding: 10px 20px;
@@ -49,6 +57,7 @@ color: #193b17; /* Dark green font color */
 border: none;
 border-radius: 5px;
 cursor: pointer;
+text-decoration: none;
 transition: background-color 0.3s ease-in-out;
 
 &:hover {
@@ -60,32 +69,41 @@ transition: background-color 0.3s ease-in-out;
 }
 `;
 
+
 const CTASection = () => {
   return (
     <CTAWrapper>
       <Heading2>Taking the stress out of Technology for Business</Heading2>
+      <Heading3>
+        Let us create processes that empower your team
+      </Heading3>
       <Button1
-      to="about-me"
-      smooth={true}
-      duration={500}
-      spy={true}
-      exact='true'
-      offset={-80}
+        to="pricing-table"
+        smooth={true}
+        duration={500}
+        spy={true}
+        exact='true'
+        offset={-80}
       >
-        Services
-        </Button1>
+        See Plans
+      </Button1>
+      
       <Button2
-      to="pricing-table"
-      smooth={true}
-      duration={500}
-      spy={true}
-      exact='true'
-      offset={-80}
+        href="https://calendly.com/jordan-goodly/30min"
+        target="_blank"
+        rel="noopener noreferrer"
+        smooth={true}
+        duration={500}
+        spy={true}
+        exact='true'
+        offset={-80}
       >
-        Subscriptions
-        </Button2>
+        Book A Call
+      </Button2>
+      
     </CTAWrapper>
   );
 };
+
 
 export default CTASection;

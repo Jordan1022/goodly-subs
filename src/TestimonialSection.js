@@ -51,7 +51,7 @@ const TestimonialSection = () => {
   We highly recommend Goodly Development to any business seeking reliable and top-notch software management."`;
 
   return (
-    <TestimonialWrapper>
+    <TestimonialWrapper id="testimony">
       <div style={{display: 'block'}}>
       <TestimonialTitle>From Becky:</TestimonialTitle>
       <TestimonialText>{testimonialText}</TestimonialText>

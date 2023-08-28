@@ -31,6 +31,7 @@ const Navigation = styled.div`
 const Tab = styled(Link)`
 margin: 0 10px;
 color: #fff;
+cursor: pointer;
   /* Your tab styles here */
 `;
 
@@ -39,9 +40,29 @@ const Header = () => {
     <HeaderWrapper>
       <Logo src="logo.svg" alt="Logo" />
       <Navigation>
-        <Tab to="/services">Services</Tab>
-        <Tab to="/subs">Subs</Tab>
-        <Tab to="/testimonials">Testimonials</Tab>
+        <Tab
+        smooth={true}
+        duration={500}
+        spy={true}
+        exact='true'
+        offset={-80} 
+        to="about-me">Services</Tab>
+        <Tab 
+        smooth={true}
+        duration={500}
+        spy={true}
+        exact='true'
+        offset={-80} 
+        to="pricing-table"
+        >Plans</Tab>
+        <Tab
+        to="testimony"
+        smooth={true}
+        duration={500}
+        spy={true}
+        exact='true'
+        offset={-80} 
+        >Testimonials</Tab>
       </Navigation>
     </HeaderWrapper>
   );
