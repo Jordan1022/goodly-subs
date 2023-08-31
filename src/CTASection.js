@@ -19,7 +19,7 @@ const Heading2 = styled.h2`
   /* Your H2 text styles here */
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #fff; /* White font color */
+  color: #F4C85F; /* White font color */
 `;
 
 const Heading3 = styled.h3`
@@ -35,7 +35,7 @@ const Button1 = styled(Link)`
   font-size: 1.5rem;
   padding: 10px 20px;
   margin-right: 10px;
-  background-color: #fff;
+  background-color: #F4C85F;
   color: #193b17; /* Dark green font color */
   border: none;
   border-radius: 5px;
@@ -52,7 +52,7 @@ const Button2 = styled.a`
 font-size: 1.5rem;
 padding: 10px 20px;
 margin-right: 10px;
-background-color: #fff;
+background-color: #F4C85F;
 color: #193b17; /* Dark green font color */
 border: none;
 border-radius: 5px;
