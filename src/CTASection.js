@@ -73,9 +73,9 @@ transition: background-color 0.3s ease-in-out;
 const CTASection = () => {
   return (
     <CTAWrapper>
-      <Heading2>Taking the stress out of Technology for Business</Heading2>
+      <Heading2>Your tech troubles solved</Heading2>
       <Heading3>
-        Let us create processes that empower your team
+        We take the hassle out of technology so you can focus on what you do best.
       </Heading3>
       <Button1
         to="pricing-table"
@@ -87,7 +87,7 @@ const CTASection = () => {
       >
         See Plans
       </Button1>
-      
+
       <Button2
         href="https://calendly.com/jordan-goodly/30min"
         target="_blank"
@@ -100,7 +100,7 @@ const CTASection = () => {
       >
         Book A Call
       </Button2>
-      
+
     </CTAWrapper>
   );
 };
