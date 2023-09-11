@@ -45,17 +45,14 @@ const TestimonialImage = styled.img`
 `;
 
 const TestimonialSection = () => {
-  const testimonialText = `"We were impressed by the outstanding software management services provided by Goodly Development. 
-  Their team of experts ensured that our systems were streamlined, efficient, and secure. 
-  They went above and beyond to meet our specific requirements and exceeded our expectations. 
-  Thanks to their expertise, our business processes have improved significantly, saving us time and resources. 
-  We highly recommend Goodly Development to any business seeking reliable and top-notch software management."`;
+  const testimonialText = `"Why didn't I hire Goodly Development sooner? I should have, because it would have saved me needless frustration and stress. Being a small business owner I can't do it all, but technology is something that causes me exponential amounts of irritation. 
+  Jordan and his team were helpful, knowledgeable, professional and diffused my stress with how efficiently they worked. A website issue that caused me 3+ days of work was fixed in less than 2 hours. Save yourself the trouble and hire Goodly today!"`;
 
   return (
     <TestimonialWrapper id="testimony">
-      <div style={{display: 'block'}}>
-      <TestimonialTitle>From Becky:</TestimonialTitle>
-      <TestimonialText>{testimonialText}</TestimonialText>
+      <div style={{ display: 'block' }}>
+        <TestimonialTitle>From J.A. Studio:</TestimonialTitle>
+        <TestimonialText>{testimonialText}</TestimonialText>
       </div>
       <TestimonialImage src="christina.jpg" alt="Testimonial" />
     </TestimonialWrapper>

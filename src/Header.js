@@ -32,6 +32,7 @@ const Tab = styled(Link)`
 margin: 0 10px;
 color: #fff;
 cursor: pointer;
+font-family: Knoxville;
   /* Your tab styles here */
 `;
 
@@ -46,7 +47,7 @@ const Header = () => {
           spy={true}
           exact='true'
           offset={-80}
-          to="about-me">Services</Tab>
+          to="about-me">SERVICES</Tab>
         <Tab
           smooth={true}
           duration={500}
@@ -54,7 +55,7 @@ const Header = () => {
           exact='true'
           offset={-80}
           to="pricing-table"
-        >Plans</Tab>
+        >PLANS</Tab>
         <Tab
           to="testimony"
           smooth={true}
@@ -62,7 +63,7 @@ const Header = () => {
           spy={true}
           exact='true'
           offset={-80}
-        >Testimonials</Tab>
+        >TESTIMONIALS</Tab>
       </Navigation>
     </HeaderWrapper>
   );

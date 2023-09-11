@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-scroll';
 
 const CTAWrapper = styled.div`
-  font-family: 'Poppins', sans-serif;
+ 
   /* Your CTA section styles here */
   background-color: #000; /* Black background */
   background-image: url('path/to/background-pattern.png'); /* Replace with the path to your background pattern image */
@@ -19,6 +19,7 @@ const Heading2 = styled.h2`
   /* Your H2 text styles here */
   font-size: 2.5rem;
   margin-bottom: 20px;
+  font-weight: 400;
   color: #F4C85F; /* White font color */
 `;
 
@@ -26,6 +27,7 @@ const Heading3 = styled.h3`
   /* Your H3 text styles here */
   font-size: 1.5rem;
   margin-bottom: 20px;
+  font-weight: 300;
   color: #fff;
 
 `;
@@ -41,6 +43,7 @@ const Button1 = styled(Link)`
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  font-family: Knoxville;
   &:hover {
     background-color: #1da90a; /* Bright green background on hover */
     color: #fff; /* White font color on hover */
@@ -56,6 +59,7 @@ background-color: #F4C85F;
 color: #193b17; /* Dark green font color */
 border: none;
 border-radius: 5px;
+font-family: Knoxville;
 cursor: pointer;
 text-decoration: none;
 transition: background-color 0.3s ease-in-out;
@@ -85,7 +89,7 @@ const CTASection = () => {
         exact='true'
         offset={-80}
       >
-        See Plans
+        SEE PLANS
       </Button1>
 
       <Button2
@@ -98,7 +102,7 @@ const CTASection = () => {
         exact='true'
         offset={-80}
       >
-        Book A Call
+        BOOK A CALL
       </Button2>
 
     </CTAWrapper>

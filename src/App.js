@@ -7,6 +7,7 @@ import AboutMeSection from './AboutMeSection';
 import TestimonialSection from './TestimonialSection';
 import PricingTable from './PricingTable';
 import Footer from './Footer';
+import './App.css';
 
 const AppWrapper = styled.div`
   /* Your app styles here */
@@ -21,22 +22,22 @@ const AppWrapper = styled.div`
 
 const App = () => {
   return (
-      <AppWrapper>
-        <Header />
-       
-          <CTASection />
-          
-        {/* Define routes with Switch and Route */}
-       
-            <AboutMeSection />
-     
-            <PricingTable />
+    <AppWrapper>
+      <Header />
 
-            <TestimonialSection />
-        
-        <Footer />
-      </AppWrapper>
-    
+      <CTASection />
+
+      {/* Define routes with Switch and Route */}
+
+      <AboutMeSection />
+
+      <PricingTable />
+
+      <TestimonialSection />
+
+      <Footer />
+    </AppWrapper>
+
   );
 };
 

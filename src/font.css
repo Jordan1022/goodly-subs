@@ -1,0 +1,5 @@
+@font-face {
+    font-family: 'Knoxville';
+    src: local('Knoxville'),
+        url('./fonts/Knoxville.otf') format('opentype');
+}
