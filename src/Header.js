@@ -38,30 +38,30 @@ cursor: pointer;
 const Header = () => {
   return (
     <HeaderWrapper>
-      <Logo src="logo.svg" alt="Logo" />
+      <Logo src="gdLogo.png" alt="Logo" />
       <Navigation>
         <Tab
-        smooth={true}
-        duration={500}
-        spy={true}
-        exact='true'
-        offset={-80} 
-        to="about-me">Services</Tab>
-        <Tab 
-        smooth={true}
-        duration={500}
-        spy={true}
-        exact='true'
-        offset={-80} 
-        to="pricing-table"
+          smooth={true}
+          duration={500}
+          spy={true}
+          exact='true'
+          offset={-80}
+          to="about-me">Services</Tab>
+        <Tab
+          smooth={true}
+          duration={500}
+          spy={true}
+          exact='true'
+          offset={-80}
+          to="pricing-table"
         >Plans</Tab>
         <Tab
-        to="testimony"
-        smooth={true}
-        duration={500}
-        spy={true}
-        exact='true'
-        offset={-80} 
+          to="testimony"
+          smooth={true}
+          duration={500}
+          spy={true}
+          exact='true'
+          offset={-80}
         >Testimonials</Tab>
       </Navigation>
     </HeaderWrapper>
