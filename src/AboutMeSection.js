@@ -54,13 +54,15 @@ const Icon = styled.i`
 const PointText = styled.p`
   font-size: 1.2rem;
   line-height: 1.8;
-  color: #777;
+  color: #F4C85F;
   margin: 0;
+  font-family: Knoxville;
 `;
 
 const SubPoint = styled.p`
   font-size: 1rem;
-  color: #999;
+  color: #22342E;
+  margin: 0;
 `;
 
 const AboutMeSection = () => {
@@ -73,42 +75,22 @@ const AboutMeSection = () => {
         <Column>
           <Row>
             <Column style={{ marginRight: '10em' }}>
-              <PointText>Marketing & Workflow Automations</PointText>
-              <SubPoint>Processes that work for you.</SubPoint>
+              <PointText>AUTOMATIONS</PointText>
+              <SubPoint>Automation is like having a virtual assistant that can handle repetitive tasks for you, making your operations smoother and more efficient.</SubPoint>
             </Column>
             <Column>
-              <PointText>Integration between Apps</PointText>
-              <SubPoint>Seamless data flow.</SubPoint>
+              <PointText>INTEGRATIONS</PointText>
+              <SubPoint>Integration is the process of making different software and applications work together harmoniously, sharing information and functionalities seamlessly.</SubPoint>
             </Column>
           </Row>
           <Row>
             <Column style={{ marginRight: '10em' }}>
-              <PointText>CRM Building</PointText>
-              <SubPoint>Sales and marketing automation.</SubPoint>
+              <PointText>WEB DEVELOPMENT</PointText>
+              <SubPoint>Web development is the process of building and maintaining a website, focusing on both the appearance and the functionality to provide a great user experience.</SubPoint>
             </Column>
             <Column>
-              <PointText>Website Development</PointText>
-              <SubPoint>Business Applications working seamlessly</SubPoint>
-            </Column>
-          </Row>
-          <Row>
-            <Column style={{ marginRight: '10em' }}>
-              <PointText>Email Marketing</PointText>
-              <SubPoint>Email marketing automation.</SubPoint>
-            </Column>
-            <Column>
-              <PointText>Software Engineering</PointText>
-              <SubPoint>Business website and email managed.</SubPoint>
-            </Column>
-          </Row>
-          <Row>
-            <Column style={{ marginRight: '10em' }}>
-              <PointText>Tech Support</PointText>
-              <SubPoint>24/7 dedicated assistance.</SubPoint>
-            </Column>
-            <Column>
-              <PointText>IT troubleshooting</PointText>
-              <SubPoint>Solving tech issues efficiently.</SubPoint>
+              <PointText>SOFTWARE MANAGEMENT</PointText>
+              <SubPoint>Software management involves overseeing and optimizing the software applications used in a business, ensuring they are secure, up-to-date, and functioning at their best.</SubPoint>
             </Column>
           </Row>
         </Column>
