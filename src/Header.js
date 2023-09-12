@@ -30,7 +30,7 @@ const Navigation = styled.div`
 
 const Tab = styled(Link)`
 margin: 0 10px;
-color: #fff;
+color: #F4C85F;
 cursor: pointer;
 font-family: Knoxville;
   /* Your tab styles here */
@@ -39,7 +39,7 @@ font-family: Knoxville;
 const Header = () => {
   return (
     <HeaderWrapper>
-      <Logo src="gdLogo.png" alt="Logo" />
+      <Logo src="gdGreen.svg" alt="Logo" />
       <Navigation>
         <Tab
           smooth={true}

@@ -20,7 +20,7 @@ const StripePricingTable = () => {
   `;
 
   return (
-    <div id="pricing-table">
+    <div id="pricing-table" >
       {/* Placeholder for the Stripe pricing table */}
       <div id="stripe-pricing-table-container"></div>
 

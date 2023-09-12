@@ -6,7 +6,7 @@ import { Link } from 'react-scroll';
 const CTAWrapper = styled.div`
  
   /* Your CTA section styles here */
-  background-color: #000; /* Black background */
+  background-color: #000; /* Dark Green background */
   background-image: url('path/to/background-pattern.png'); /* Replace with the path to your background pattern image */
   background-repeat: repeat; /* Repeat the background pattern */
   border-radius: 10px;
@@ -77,7 +77,7 @@ transition: background-color 0.3s ease-in-out;
 const CTASection = () => {
   return (
     <CTAWrapper>
-      <Heading2>Your tech troubles solved</Heading2>
+      <Heading2>Taking the stress out of Technology for Business</Heading2>
       <Heading3>
         We take the hassle out of technology so you can focus on what you do best.
       </Heading3>
