@@ -13,10 +13,9 @@ const StripePricingTable = () => {
   }, []);
 
   const pricingTableScript = `
-    <stripe-pricing-table
-      pricing-table-id="prctbl_1NVgtTAbTC2zOtZGGDTql6mT"
-      publishable-key="pk_live_51KBsNoAbTC2zOtZGT6aKcwOQz6bmJk8BQwghrZHcqauVjmFmuuFgOH5hAIce53zR8qHzE2XFlUZsIbNYAOH1XLQc00TrQwRZZ3">
-    </stripe-pricing-table>
+  <stripe-pricing-table pricing-table-id="prctbl_1NpeYfAbTC2zOtZGwEJtDXXb"
+  publishable-key="pk_live_51KBsNoAbTC2zOtZGT6aKcwOQz6bmJk8BQwghrZHcqauVjmFmuuFgOH5hAIce53zR8qHzE2XFlUZsIbNYAOH1XLQc00TrQwRZZ3">
+  </stripe-pricing-table>
   `;
 
   return (
