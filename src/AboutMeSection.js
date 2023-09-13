@@ -25,8 +25,9 @@ const ImageOfMe = styled.img`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   
   @media (max-width: 780px) {
-    width: 100%;
-    height: 100%;
+    margin-top: 50px;
+    width: 70%;
+    height: 70%;
   }
 `;
 
