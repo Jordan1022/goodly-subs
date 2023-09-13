@@ -21,7 +21,7 @@ const AboutMeWrapper = styled.div`
 const ImageOfMe = styled.img`
   width: 350px;
   border-radius: 8px;
-  margin: 25px 10px 25px 25px;
+  margin: 25px 10px 25px 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   
   @media (max-width: 780px) {
