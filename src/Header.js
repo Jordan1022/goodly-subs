@@ -33,6 +33,9 @@ margin: 0 10px;
 color: #F4C85F;
 cursor: pointer;
 font-family: Knoxville;
+@media (min-width: 760px) {
+  font-size: 1.5rem;
+}
   /* Your tab styles here */
 `;
 

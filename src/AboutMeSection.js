@@ -11,6 +11,10 @@ const AboutMeWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     padding-bottom: 20px;
+    margin-top: 100px;
+  }
+  @media (max-width: 780px) {
+    margin-top: 150px;
   }
 `;
 
