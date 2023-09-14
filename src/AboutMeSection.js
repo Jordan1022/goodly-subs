@@ -20,35 +20,66 @@ const AboutMeWrapper = styled.div`
 
 const ImageOfMe = styled.img`
   width: 350px;
+  max-height: 350px; /* Limit the height to prevent squishing */
+  object-fit: cover; /* Adjusts the image to cover the area without distortion */
   border-radius: 8px;
   margin: 25px 10px 25px 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin: auto auto auto 25px;
   
+  @media (max-width: 1100px) {
+    width: 300px;
+  }
+
   @media (max-width: 780px) {
+    width: 250px;
     margin-top: 50px;
-    width: 70%;
-    height: 70%;
   }
 `;
 
 const MainPointsWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin: auto 20px;
+  flex-direction: column;
+  margin: 20px;
   padding: 0 20px;
+
+  @media (min-width: 781px) and (max-width: 1099px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+  }
 `;
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
-  width: 95%;  /* You can adjust this value for better spacing */
+  width: 100%;
+ 
+  margin: 0 auto;
+
+  @media (min-width: 1100px) {
+    
+    max-width: none;
+    margin: 0;
+  }
 `;
 
 const Row = styled.div`
   display: flex;
-  flex-direction: row;
-  width: 100%;
+  flex-direction: column;
+  margin-bottom: 20px;
+  gap: 20px; /* Add a gap property to maintain some space between columns */
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
+
+
+
 
 const Icon = styled.i`
   font-size: 24px;
@@ -57,18 +88,27 @@ const Icon = styled.i`
 `;
 
 const PointText = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.8;
   color: #F4C85F;
   margin: 0;
   font-family: Knoxville;
+
+  @media (min-width: 781px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const SubPoint = styled.p`
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: #22342E;
   margin: 0;
+
+  @media (min-width: 781px) {
+    font-size: 1rem;
+  }
 `;
+
 
 const AboutMeSection = () => {
   return (
@@ -79,7 +119,7 @@ const AboutMeSection = () => {
 
         <Column>
           <Row>
-            <Column style={{ marginRight: '10em' }}>
+            <Column >
               <PointText>AUTOMATIONS</PointText>
               <SubPoint>Automation is like having a virtual assistant that can handle repetitive tasks for you, making your operations smoother and more efficient.</SubPoint>
             </Column>
@@ -89,7 +129,7 @@ const AboutMeSection = () => {
             </Column>
           </Row>
           <Row>
-            <Column style={{ marginRight: '10em' }}>
+            <Column>
               <PointText>WEB DEVELOPMENT</PointText>
               <SubPoint>Web development is the process of building and maintaining a website, focusing on both the appearance and the functionality to provide a great user experience.</SubPoint>
             </Column>
