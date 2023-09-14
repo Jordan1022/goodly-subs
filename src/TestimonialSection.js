@@ -31,7 +31,6 @@ const TestimonialText = styled.p`
   /* Your testimonial text styles here */
   font-size: 1.2rem;
   line-height: 1.6;
-  font-style: italic;
   color: #333; /* Dark text color */
   margin-right: 20px;
 `;
