@@ -46,15 +46,26 @@ const TestimonialImage = styled.img`
 const TestimonialSection = () => {
   const testimonialText = `"Why didn't I hire Goodly Development sooner? I should have, because it would have saved me needless frustration and stress. Being a small business owner I can't do it all, but technology is something that causes me exponential amounts of irritation. 
   Jordan and his team were helpful, knowledgeable, professional and diffused my stress with how efficiently they worked. A website issue that caused me 3+ days of work was fixed in less than 2 hours. Save yourself the trouble and hire Goodly today!"`;
+  const testimonialText2 = `"Goodly Development has been a lifesaver!! Jordan and the team are so responsive, knowledgeable, kind and knew what I needed to systematize our processes and make our business work more efficiently. Even when I didn't know how to articulate what we needed! We cannot recommend them highly enough!" 
+  `;
 
   return (
-    <TestimonialWrapper id="testimony">
-      <div style={{ display: 'block' }}>
-        <TestimonialTitle>From J.A. Studio:</TestimonialTitle>
-        <TestimonialText>{testimonialText}</TestimonialText>
-      </div>
-      <TestimonialImage src="christina.jpg" alt="Testimonial" />
-    </TestimonialWrapper>
+    <div>
+      <TestimonialWrapper id="testimony">
+        <div style={{ display: 'block' }}>
+          <TestimonialTitle>From J.A. Studio:</TestimonialTitle>
+          <TestimonialText>{testimonialText}</TestimonialText>
+        </div>
+        <TestimonialImage src="christina.jpg" alt="Testimonial" />
+      </TestimonialWrapper>
+      <TestimonialWrapper>
+        <div style={{ display: 'block' }}>
+          <TestimonialTitle>From The Nelson Group:</TestimonialTitle>
+          <TestimonialText>{testimonialText2}</TestimonialText>
+        </div>
+        <TestimonialImage src="Jenn.jpg" alt="Testimonial" />
+      </TestimonialWrapper>
+    </div>
   );
 };
 
