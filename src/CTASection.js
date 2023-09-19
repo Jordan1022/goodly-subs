@@ -79,7 +79,7 @@ const CTASection = () => {
     <CTAWrapper>
       <Heading2>Taking the stress out of Technology for Business</Heading2>
       <Heading3>
-        We take the hassle out of technology so you can focus on what you do best.
+        We’re here to handle the tech, giving you peace of mind to run your business smoothly.
       </Heading3>
       <Button1
         to="pricing-table"

@@ -121,21 +121,21 @@ const AboutMeSection = () => {
           <Row>
             <Column >
               <PointText>AUTOMATIONS</PointText>
-              <SubPoint>Automation is like having a virtual assistant that can handle repetitive tasks for you, making your operations smoother and more efficient.</SubPoint>
+              <SubPoint>Imagine a virtual helper taking care of repetitive tasks, saving you hours each day. That's what our automation service offers - giving you more time to focus on growing your business.</SubPoint>
             </Column>
             <Column>
               <PointText>INTEGRATIONS</PointText>
-              <SubPoint>Integration is the process of making different software and applications work together harmoniously, sharing information and functionalities seamlessly.</SubPoint>
+              <SubPoint>Our integrations service ensures all your different software and apps talk to each other seamlessly, sharing information automatically, so you don’t have to juggle between multiple platforms.</SubPoint>
             </Column>
           </Row>
           <Row>
             <Column>
               <PointText>WEB DEVELOPMENT</PointText>
-              <SubPoint>Web development is the process of building and maintaining a website, focusing on both the appearance and the functionality to provide a great user experience.</SubPoint>
+              <SubPoint>A website that not only looks great but works flawlessly. We build websites that offer excellent user experiences, keeping your customers engaged and happy.</SubPoint>
             </Column>
             <Column>
               <PointText>SOFTWARE MANAGEMENT</PointText>
-              <SubPoint>Software management involves overseeing and optimizing the software applications used in a business, ensuring they are secure, up-to-date, and functioning at their best.</SubPoint>
+              <SubPoint>We keep an eye on all the software your business uses, making sure everything is secure, up-to-date, and working smoothly, so you can work worry-free.</SubPoint>
             </Column>
           </Row>
         </Column>
