@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Header from './Header';
 import CTASection from './CTASection';
 import AboutMeSection from './AboutMeSection';
+import DemoSection from './DemoSection';
 import TestimonialSection from './TestimonialSection';
 import PricingTable from './PricingTable';
 import Footer from './Footer';
@@ -30,6 +31,7 @@ const App = () => {
       {/* Define routes with Switch and Route */}
 
       <AboutMeSection />
+      <DemoSection />
 
       <PricingTable />
 
