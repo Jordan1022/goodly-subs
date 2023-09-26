@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FaRobot, FaLink, FaLaptopCode, FaLock } from 'react-icons/fa';
 
 const AboutMeWrapper = styled.div`
   display: flex;
@@ -83,7 +84,7 @@ const Row = styled.div`
 
 const Icon = styled.i`
   font-size: 24px;
-  color: #193b17;
+  color: #F4C85F;
   margin-right: 10px;
 `;
 
@@ -120,20 +121,32 @@ const AboutMeSection = () => {
         <Column>
           <Row>
             <Column >
+              <Icon>
+                <FaRobot />
+              </Icon>
               <PointText>AUTOMATIONS</PointText>
               <SubPoint>Imagine a virtual helper taking care of repetitive tasks, saving you hours each day. That's what our automation service offers - giving you more time to focus on growing your business.</SubPoint>
             </Column>
             <Column>
+              <Icon>
+                <FaLink />
+              </Icon>
               <PointText>INTEGRATIONS</PointText>
               <SubPoint>Our integrations service ensures all your different software and apps talk to each other seamlessly, sharing information automatically, so you don’t have to juggle between multiple platforms.</SubPoint>
             </Column>
           </Row>
           <Row>
             <Column>
+              <Icon>
+                <FaLaptopCode />
+              </Icon>
               <PointText>WEB DEVELOPMENT</PointText>
               <SubPoint>A website that not only looks great but works flawlessly. We build websites that offer excellent user experiences, keeping your customers engaged and happy.</SubPoint>
             </Column>
             <Column>
+              <Icon>
+                <FaLock />
+              </Icon>
               <PointText>SOFTWARE MANAGEMENT</PointText>
               <SubPoint>We keep an eye on all the software your business uses, making sure everything is secure, up-to-date, and working smoothly, so you can work worry-free.</SubPoint>
             </Column>

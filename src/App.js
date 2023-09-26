@@ -31,9 +31,10 @@ const App = () => {
       {/* Define routes with Switch and Route */}
 
       <AboutMeSection />
-      <DemoSection />
 
       <PricingTable />
+
+      <DemoSection />
 
       <TestimonialSection />
 
