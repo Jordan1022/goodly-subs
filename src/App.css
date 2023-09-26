@@ -17,6 +17,12 @@ body {
   font-family: 'Knoxville', sans-serif;
 }
 
+.swiper-bullets {
+  .swiper-pagination-bullet {
+    background: #F4C85F !important;
+  }
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

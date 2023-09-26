@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import './App.css';
 
 import 'swiper/css';
 
@@ -13,12 +14,6 @@ const DemoSectionWrapper = styled.div`
 const TabList = styled.div`
   // Styles for the tab list
 `;
-
-const SwiperStyles = styled.div`
-  .swiper-pagination-bullet {
-     background: #fff !important;
-  }
-`
 
 const Tab = styled.button`
   font-family: 'Poppins', sans-serif;
@@ -45,6 +40,7 @@ const TabPanel = styled.div`
   // Styles for each tab panel
   // Hide inactive panels
   display: ${props => props.active ? 'block' : 'none'}; 
+  margin-top: 30px;
   .swiper {
     width: 100%;
     height: 300px;
@@ -89,36 +85,52 @@ const DemoSection = () => {
 
             <TabPanel active={activeTab === 'tab1'}>
                 {/* Tab 1 content */}
-                <SwiperStyles>
-                    <Swiper
-                        spaceBetween={30}
-                        slidesPerView={1} // Show one slide at a time
-                        pagination={{ clickable: true }} // Add pagination dots
-                        navigation // Add prev/next buttons
-                        // Responsive breakpoints
-                        breakpoints={{
-                            640: { slidesPerView: 2 },
-                            768: { slidesPerView: 3 }
-                        }}
-
-                    >
-                        <SwiperSlide >
+                <Swiper
+                    spaceBetween={30}
+                    slidesPerView={1} // Show one slide at a time
+                    pagination={{ clickable: true }} // Add pagination dots
+                    navigation // Add prev/next buttons
+                    // Responsive breakpoints
+                    breakpoints={{
+                        640: { slidesPerView: 2 },
+                        768: { slidesPerView: 3 }
+                    }}
+                    className='swiper-bullets'
+                >
+                    <SwiperSlide >
+                        <a
+                            href="weGive1.png"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <img src="weGive1.png" alt='website1'
                                 style={{ width: '100%', height: '300px', objectFit: 'cover' }} // Set image sizes 
                             />
-                        </SwiperSlide>
-                        <SwiperSlide >
+                        </a>
+                    </SwiperSlide>
+                    <SwiperSlide >
+                        <a
+                            href="weGive2.png"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <img
                                 style={{ width: '100%', height: '300px', objectFit: 'cover' }}
                                 src="weGive2.png" alt='website2' />
-                        </SwiperSlide>
-                        <SwiperSlide >
+                        </a>
+                    </SwiperSlide>
+                    <SwiperSlide >
+                        <a
+                            href="mn81.png"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <img
                                 style={{ width: '100%', height: '300px', objectFit: 'cover' }}
                                 src="mn81.png" alt='website3' />
-                        </SwiperSlide>
-                    </Swiper>
-                </SwiperStyles>
+                        </a>
+                    </SwiperSlide>
+                </Swiper>
             </TabPanel>
 
             <TabPanel active={activeTab === 'tab2'}>
