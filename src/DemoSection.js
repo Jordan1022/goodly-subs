@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+
 
 const DemoSectionWrapper = styled.div`
   // Styles for the overall component
@@ -9,6 +13,12 @@ const DemoSectionWrapper = styled.div`
 const TabList = styled.div`
   // Styles for the tab list
 `;
+
+const SwiperStyles = styled.div`
+  .swiper-pagination-bullet {
+     background: #fff !important;
+  }
+`
 
 const Tab = styled.button`
   font-family: 'Poppins', sans-serif;
@@ -35,6 +45,16 @@ const TabPanel = styled.div`
   // Styles for each tab panel
   // Hide inactive panels
   display: ${props => props.active ? 'block' : 'none'}; 
+  .swiper {
+    width: 100%;
+    height: 300px;
+  }
+
+  @media (max-width: 768px) {
+    .swiper {
+      height: 200px; 
+    }
+  }
 `;
 
 const DemoSection = () => {
@@ -49,7 +69,7 @@ const DemoSection = () => {
                     active={activeTab === 'tab1'}
                     onClick={() => setActiveTab('tab1')}
                 >
-                    WeGive Website
+                    Website Development
                 </Tab>
 
                 <Tab
@@ -69,6 +89,36 @@ const DemoSection = () => {
 
             <TabPanel active={activeTab === 'tab1'}>
                 {/* Tab 1 content */}
+                <SwiperStyles>
+                    <Swiper
+                        spaceBetween={30}
+                        slidesPerView={1} // Show one slide at a time
+                        pagination={{ clickable: true }} // Add pagination dots
+                        navigation // Add prev/next buttons
+                        // Responsive breakpoints
+                        breakpoints={{
+                            640: { slidesPerView: 2 },
+                            768: { slidesPerView: 3 }
+                        }}
+
+                    >
+                        <SwiperSlide >
+                            <img src="weGive1.png" alt='website1'
+                                style={{ width: '100%', height: '300px', objectFit: 'cover' }} // Set image sizes 
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide >
+                            <img
+                                style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+                                src="weGive2.png" alt='website2' />
+                        </SwiperSlide>
+                        <SwiperSlide >
+                            <img
+                                style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+                                src="mn81.png" alt='website3' />
+                        </SwiperSlide>
+                    </Swiper>
+                </SwiperStyles>
             </TabPanel>
 
             <TabPanel active={activeTab === 'tab2'}>
