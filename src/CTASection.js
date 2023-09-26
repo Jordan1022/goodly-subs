@@ -77,9 +77,9 @@ transition: background-color 0.3s ease-in-out;
 const CTASection = () => {
   return (
     <CTAWrapper>
-      <Heading2>Taking the stress out of Technology for Business</Heading2>
+      <Heading2>Stress Free Technology for Business</Heading2>
       <Heading3>
-        We’re here to handle the tech, giving you peace of mind to run your business smoothly.
+        Wave goodbye to tech headaches, and hello to streamlined operations.
       </Heading3>
       <Button1
         to="pricing-table"
