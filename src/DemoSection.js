@@ -35,6 +35,11 @@ const Tab = styled.button`
   `}
 `;
 
+const DemoImage = styled.img`
+  width: 100%; 
+  height: 300px;
+  object-fit: cover;
+`
 
 const TabPanel = styled.div`
   // Styles for each tab panel
@@ -103,9 +108,7 @@ const DemoSection = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img src="weGive1.png" alt='website1'
-                                style={{ width: '100%', height: '300px', objectFit: 'cover' }} // Set image sizes 
-                            />
+                            <DemoImage src="weGive1.png" alt='website1' />
                         </a>
                     </SwiperSlide>
                     <SwiperSlide >
@@ -114,9 +117,7 @@ const DemoSection = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img
-                                style={{ width: '100%', height: '300px', objectFit: 'cover' }}
-                                src="weGive2.png" alt='website2' />
+                            <DemoImage src="weGive2.png" alt='website2' />
                         </a>
                     </SwiperSlide>
                     <SwiperSlide >
@@ -125,9 +126,7 @@ const DemoSection = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img
-                                style={{ width: '100%', height: '300px', objectFit: 'cover' }}
-                                src="mn81.png" alt='website3' />
+                            <DemoImage src="mn81.png" alt='website3' />
                         </a>
                     </SwiperSlide>
                 </Swiper>
