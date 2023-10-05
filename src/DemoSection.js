@@ -9,6 +9,9 @@ import 'swiper/css';
 const DemoSectionWrapper = styled.div`
   // Styles for the overall component
   margin-top: 50px;
+  @media (min-width: 768px) {
+    margin-top: 120px;
+}
 `;
 
 const TabList = styled.div`
@@ -17,7 +20,7 @@ const TabList = styled.div`
 
 const Tab = styled.button`
   font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;  
+  font-size: 1.5rem;  
   padding: 10px 20px;
   border: none;
   border-bottom: 2px solid transparent;
@@ -33,6 +36,7 @@ const Tab = styled.button`
     border-bottom: 2px solid #F4C85F;
     color: #F4C85F;
   `}
+
 `;
 
 const DemoImage = styled.img`
@@ -130,6 +134,7 @@ const DemoSection = () => {
                         </a>
                     </SwiperSlide>
                 </Swiper>
+                <div style={{ color: "#F4C85F", margin: '0 10px' }}>Financial Processing Platform and Music Streaming Service </div>
             </TabPanel>
 
             <TabPanel active={activeTab === 'tab2'}>
@@ -180,6 +185,9 @@ const DemoSection = () => {
                         </a>
                     </SwiperSlide>
                 </Swiper>
+                <div style={{ color: "#F4C85F", margin: '0 10px' }}>
+                    Automations for lead generation and sales.
+                </div>
             </TabPanel>
 
             <TabPanel active={activeTab === 'tab3'}>
@@ -198,13 +206,13 @@ const DemoSection = () => {
                 >
                     <SwiperSlide >
                         <a
-                            href="aws.png"
+                            href="gcp.png"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <img
                                 style={{ width: '100%', height: '300px', objectFit: 'cover' }}
-                                src="aws.png" alt='auto1' />
+                                src="gcp.png" alt='auto1' />
                         </a>
                     </SwiperSlide>
                     <SwiperSlide >
@@ -220,16 +228,19 @@ const DemoSection = () => {
                     </SwiperSlide>
                     <SwiperSlide >
                         <a
-                            href="gcp.png"
+                            href="aws.png"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <img
                                 style={{ width: '100%', height: '300px', objectFit: 'cover' }}
-                                src="gcp.png" alt='auto1' />
+                                src="aws.png" alt='auto1' />
                         </a>
                     </SwiperSlide>
                 </Swiper>
+                <div style={{ color: "#F4C85F", margin: '0 10px' }}>
+                    Handling user management, resources, and cloud infrastructure.
+                </div>
             </TabPanel>
 
         </DemoSectionWrapper>
