@@ -42,7 +42,7 @@ font-family: Knoxville;
 const Header = () => {
   return (
     <HeaderWrapper>
-      <Logo src="gdGreen.svg" alt="Logo" />
+      <Logo src="GoodlyG.svg" alt="Logo" />
       <Navigation>
         <Tab
           smooth={true}

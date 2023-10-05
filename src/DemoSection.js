@@ -135,6 +135,52 @@ const DemoSection = () => {
 
             <TabPanel active={activeTab === 'tab2'}>
                 {/* Tab 2 content */}
+                <Swiper
+                    spaceBetween={30}
+                    slidesPerView={1} // Show one slide at a time
+                    pagination={{ clickable: true }} // Add pagination dots
+                    navigation // Add prev/next buttons
+                    // Responsive breakpoints
+                    breakpoints={{
+                        640: { slidesPerView: 2 },
+                        768: { slidesPerView: 3 }
+                    }}
+                    className='swiper-bullets'
+                >
+                    <SwiperSlide >
+                        <a
+                            href="auto1.png"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+                                src="auto1.png" alt='auto1' />
+                        </a>
+                    </SwiperSlide>
+                    <SwiperSlide >
+                        <a
+                            href="auto4.png"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+                                src="auto4.png" alt='auto1' />
+                        </a>
+                    </SwiperSlide>
+                    <SwiperSlide >
+                        <a
+                            href="auto3.png"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+                                src="auto3.png" alt='auto1' />
+                        </a>
+                    </SwiperSlide>
+                </Swiper>
             </TabPanel>
 
             <TabPanel active={activeTab === 'tab3'}>
