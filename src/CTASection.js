@@ -45,8 +45,9 @@ const Button1 = styled(Link)`
   transition: background-color 0.3s ease-in-out;
   font-family: Knoxville;
   &:hover {
-    background-color: #1da90a; /* Bright green background on hover */
-    color: #fff; /* White font color on hover */
+    background-color: #000; /* Bright green background on hover */
+    color: #F4C85F; /* White font color on hover */
+    border: 1px solid #F4C85F;
   }
 `;
 
@@ -65,8 +66,9 @@ text-decoration: none;
 transition: background-color 0.3s ease-in-out;
 
 &:hover {
-  background-color: #1da90a; /* Bright green background on hover */
-  color: #fff; /* White font color on hover */
+  background-color: #000; /* Bright green background on hover */
+  color: #F4C85F; /* White font color on hover */
+  border: 1px solid #F4C85F;
 }
 @media (max-width: 420px) {
   margin-top: 10px;

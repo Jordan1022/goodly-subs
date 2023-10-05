@@ -149,13 +149,13 @@ const DemoSection = () => {
                 >
                     <SwiperSlide >
                         <a
-                            href="auto1.png"
+                            href="automationHub.png"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <img
                                 style={{ width: '100%', height: '300px', objectFit: 'cover' }}
-                                src="auto1.png" alt='auto1' />
+                                src="automationHub.png" alt='auto1' />
                         </a>
                     </SwiperSlide>
                     <SwiperSlide >
@@ -185,6 +185,52 @@ const DemoSection = () => {
 
             <TabPanel active={activeTab === 'tab3'}>
                 {/* Tab 3 content */}
+                <Swiper
+                    spaceBetween={30}
+                    slidesPerView={1} // Show one slide at a time
+                    pagination={{ clickable: true }} // Add pagination dots
+                    navigation // Add prev/next buttons
+                    // Responsive breakpoints
+                    breakpoints={{
+                        640: { slidesPerView: 2 },
+                        768: { slidesPerView: 3 }
+                    }}
+                    className='swiper-bullets'
+                >
+                    <SwiperSlide >
+                        <a
+                            href="aws.png"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+                                src="aws.png" alt='auto1' />
+                        </a>
+                    </SwiperSlide>
+                    <SwiperSlide >
+                        <a
+                            href="userManagement.png"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+                                src="userManagement.png" alt='auto1' />
+                        </a>
+                    </SwiperSlide>
+                    <SwiperSlide >
+                        <a
+                            href="gcp.png"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+                                src="gcp.png" alt='auto1' />
+                        </a>
+                    </SwiperSlide>
+                </Swiper>
             </TabPanel>
 
         </DemoSectionWrapper>
