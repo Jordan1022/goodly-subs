@@ -72,7 +72,7 @@ const DemoSection = () => {
                     active={activeTab === 'tab2'}
                     onClick={() => setActiveTab('tab2')}
                 >
-                    Automation Screenshot
+                    Automations
                 </Tab>
 
                 <Tab
