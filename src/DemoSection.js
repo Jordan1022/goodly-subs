@@ -9,6 +9,7 @@ import 'swiper/css';
 const DemoSectionWrapper = styled.div`
   // Styles for the overall component
   margin-top: 50px;
+  margin-bottom: 250px;
   @media (min-width: 768px) {
     margin-top: 120px;
 }

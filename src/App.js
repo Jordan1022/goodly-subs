@@ -7,6 +7,7 @@ import AboutMeSection from './AboutMeSection';
 import DemoSection from './DemoSection';
 import TestimonialSection from './TestimonialSection';
 import PricingTable from './PricingTable';
+import GoodlyAbout from './GoodlyAbout';
 import Footer from './Footer';
 import './App.css';
 
@@ -28,13 +29,15 @@ const App = () => {
 
       <CTASection />
 
+      <GoodlyAbout />
+
       {/* Define routes with Switch and Route */}
 
       <AboutMeSection />
 
-      <PricingTable />
-
       <DemoSection />
+
+      <PricingTable />
 
       <TestimonialSection />
 
