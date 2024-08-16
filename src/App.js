@@ -25,23 +25,25 @@ const AppWrapper = styled.div`
 const App = () => {
   return (
     <AppWrapper>
-      <Header />
+      <div style={{ maxWidth: "1455px", marginLeft: 'auto', marginRight: 'auto' }}>
+        <Header />
 
-      <CTASection />
+        <CTASection />
 
-      <GoodlyAbout />
+        <GoodlyAbout />
 
-      {/* Define routes with Switch and Route */}
+        {/* Define routes with Switch and Route */}
 
-      <AboutMeSection />
+        <AboutMeSection />
 
-      <DemoSection />
+        <DemoSection />
 
-      <PricingTable />
+        <PricingTable />
 
-      <TestimonialSection />
+        <TestimonialSection />
 
-      <Footer />
+        <Footer />
+      </div>
     </AppWrapper>
 
   );
