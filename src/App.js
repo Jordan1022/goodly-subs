@@ -25,7 +25,9 @@ const AppWrapper = styled.div`
 const App = () => {
   return (
     <AppWrapper>
+
       <div style={{ maxWidth: "1455px", marginLeft: 'auto', marginRight: 'auto' }}>
+
         <Header />
 
         <CTASection />
@@ -43,7 +45,9 @@ const App = () => {
         <TestimonialSection />
 
         <Footer />
+
       </div>
+
     </AppWrapper>
 
   );
