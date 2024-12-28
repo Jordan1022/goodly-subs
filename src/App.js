@@ -8,6 +8,7 @@ import DemoSection from './DemoSection';
 import TestimonialSection from './TestimonialSection';
 import PricingTable from './PricingTable';
 import GoodlyAbout from './GoodlyAbout';
+import TaskDefinition from './TaskDefinition';
 import Footer from './Footer';
 import './App.css';
 
@@ -41,6 +42,8 @@ const App = () => {
         <DemoSection />
 
         <PricingTable />
+
+        <TaskDefinition />
 
         <TestimonialSection />
 
