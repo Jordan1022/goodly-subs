@@ -3,156 +3,183 @@ import styled from 'styled-components';
 import { FaRobot, FaLink, FaLaptopCode, FaLock } from 'react-icons/fa';
 
 const AboutMeWrapper = styled.div`
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #fff, #f8f9fa);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  
+  @media (max-width: 1100px) {
+    margin: 60px 20px;
+  }
+`;
+
+const Header = styled.div`
   display: flex;
-  border-radius: 8px;
-  margin-bottom: 150px;
-  background-color: #fff;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
   
   @media (max-width: 1100px) {
     flex-direction: column;
-    align-items: center;
-    padding-bottom: 20px;
-    margin-top: 100px;
-  }
-  @media (max-width: 780px) {
-    margin-top: 150px;
+    text-align: center;
   }
 `;
 
 const ImageOfMe = styled.img`
-  width: 350px;
-  max-height: 350px; /* Limit the height to prevent squishing */
-  object-fit: cover; /* Adjusts the image to cover the area without distortion */
-  border-radius: 8px;
-  margin: 25px 10px 25px 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin: auto auto auto 25px;
-  
-  @media (max-width: 1100px) {
-    width: 300px;
-  }
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
 
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
   @media (max-width: 780px) {
     width: 250px;
-    margin-top: 50px;
+    height: 250px;
   }
 `;
 
-const MainPointsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  padding: 0 20px;
+const HeaderContent = styled.div`
+  flex: 1;
+`;
 
-  @media (min-width: 781px) and (max-width: 1099px) {
-    flex-direction: column;
-  }
-
-  @media (min-width: 1100px) {
-    flex-direction: row;
+const Title = styled.h2`
+  font-size: 2.5rem;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  
+  @media (max-width: 780px) {
+    font-size: 2rem;
   }
 `;
 
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
- 
-  margin: 0 auto;
+const Subtitle = styled.p`
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+`;
 
-  @media (min-width: 1100px) {
-    
-    max-width: none;
-    margin: 0;
+const ServicesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 `;
 
-const Row = styled.div`
+const ServiceCard = styled.div`
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const IconWrapper = styled.div`
+  width: 50px;
+  height: 50px;
+  background: #F4C85F;
+  border-radius: 12px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
-  gap: 20px; /* Add a gap property to maintain some space between columns */
-
-  @media (min-width: 1100px) {
-    flex-direction: row;
-    justify-content: space-between;
+  
+  svg {
+    font-size: 24px;
+    color: white;
   }
 `;
 
-
-
-
-const Icon = styled.i`
-  font-size: 24px;
-  color: #F4C85F;
-  margin-right: 10px;
+const ServiceTitle = styled.h3`
+  font-size: 1.3rem;
+  color: #2d3748;
+  margin-bottom: 12px;
+  font-weight: 600;
 `;
 
-const PointText = styled.p`
+const ServiceDescription = styled.p`
   font-size: 1rem;
-  line-height: 1.8;
-  color: #F4C85F;
+  line-height: 1.6;
+  color: #4a5568;
   margin: 0;
-  font-family: Knoxville;
-
-  @media (min-width: 781px) {
-    font-size: 1.2rem;
-  }
 `;
-
-const SubPoint = styled.p`
-  font-size: 0.875rem;
-  color: #22342E;
-  margin: 0;
-
-  @media (min-width: 781px) {
-    font-size: 1rem;
-  }
-`;
-
 
 const AboutMeSection = () => {
   return (
     <AboutMeWrapper id="about-me">
-      <ImageOfMe src="bwprofile.png" alt="You" />
-      <MainPointsWrapper>
-        <Icon className="icon1" />
+      <Header>
+        <ImageOfMe src="bwprofile.png" alt="Jordan Allen" />
+        <HeaderContent>
+          <Title>Our Services</Title>
+          <Subtitle>
+            We transform complex technical challenges into elegant, efficient solutions. 
+            Our comprehensive suite of services is designed to help your business thrive in the digital age.
+          </Subtitle>
+        </HeaderContent>
+      </Header>
 
-        <Column>
-          <Row>
-            <Column >
-              <Icon>
-                <FaRobot />
-              </Icon>
-              <PointText>AUTOMATIONS</PointText>
-              <SubPoint>Imagine a virtual helper taking care of repetitive tasks, saving you hours each day. That's what our automation service offers - giving you more time to focus on growing your business.</SubPoint>
-            </Column>
-            <Column>
-              <Icon>
-                <FaLink />
-              </Icon>
-              <PointText>INTEGRATIONS</PointText>
-              <SubPoint>Our integrations service ensures all your different software and apps talk to each other seamlessly, sharing information automatically, so you don’t have to juggle between multiple platforms.</SubPoint>
-            </Column>
-          </Row>
-          <Row>
-            <Column>
-              <Icon>
-                <FaLaptopCode />
-              </Icon>
-              <PointText>WEB DEVELOPMENT</PointText>
-              <SubPoint>A website that not only looks great but works flawlessly. We build websites that offer excellent user experiences, keeping your customers engaged and happy.</SubPoint>
-            </Column>
-            <Column>
-              <Icon>
-                <FaLock />
-              </Icon>
-              <PointText>SOFTWARE MANAGEMENT</PointText>
-              <SubPoint>We keep an eye on all the software your business uses, making sure everything is secure, up-to-date, and working smoothly, so you can work worry-free.</SubPoint>
-            </Column>
-          </Row>
-        </Column>
-      </MainPointsWrapper>
+      <ServicesGrid>
+        <ServiceCard>
+          <IconWrapper>
+            <FaRobot />
+          </IconWrapper>
+          <ServiceTitle>Smart Automations</ServiceTitle>
+          <ServiceDescription>
+            Transform your workflow with intelligent automation solutions that eliminate repetitive tasks, 
+            reduce errors, and free up your team to focus on strategic growth.
+          </ServiceDescription>
+        </ServiceCard>
+
+        <ServiceCard>
+          <IconWrapper>
+            <FaLink />
+          </IconWrapper>
+          <ServiceTitle>Seamless Integrations</ServiceTitle>
+          <ServiceDescription>
+            Connect your business tools into a unified ecosystem where data flows effortlessly, 
+            enabling better decision-making and improved operational efficiency.
+          </ServiceDescription>
+        </ServiceCard>
+
+        <ServiceCard>
+          <IconWrapper>
+            <FaLaptopCode />
+          </IconWrapper>
+          <ServiceTitle>Custom Web Solutions</ServiceTitle>
+          <ServiceDescription>
+            Create compelling digital experiences with custom-built websites and web applications 
+            that engage your audience and drive business growth.
+          </ServiceDescription>
+        </ServiceCard>
+
+        <ServiceCard>
+          <IconWrapper>
+            <FaLock />
+          </IconWrapper>
+          <ServiceTitle>Technology Management</ServiceTitle>
+          <ServiceDescription>
+            Keep your digital infrastructure secure and efficient with our comprehensive 
+            software management and maintenance services.
+          </ServiceDescription>
+        </ServiceCard>
+      </ServicesGrid>
     </AboutMeWrapper>
   );
 };
