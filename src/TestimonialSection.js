@@ -12,6 +12,12 @@ const TestimonialsContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding-top: 100px;
+
+  @media (max-width: 900px) {
+    min-height: 800px;
+    padding: 20px;
+    padding-top: 40px;
+  }
 `;
 
 const TestimonialWrapper = styled.div`
@@ -30,18 +36,30 @@ const TestimonialWrapper = styled.div`
   z-index: ${props => props.$zIndex};
 
   &:hover {
-    transform: translateY(${props => props.$offset - 20}px) rotate(${props => props.$rotation}deg) scale(1.02);
+    transform: translateY(${props => {
+      const moveDistance = props.$offset === 0 ? -30 : 30;
+      return props.$offset + moveDistance;
+    }}px) rotate(${props => props.$rotation}deg) scale(1.02);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   }
 
   @media (max-width: 900px) {
     flex-direction: column;
-    padding: 30px;
-    transform: translateY(${props => props.$offset * 0.8}px) rotate(${props => props.$rotation * 0.7}deg);
+    padding: 25px;
+    width: 85%;
+    transform: translateY(${props => props.$offset * 0.9}px) rotate(${props => props.$rotation * 0.3}deg);
     
     &:hover {
-      transform: translateY(${props => props.$offset * 0.8 - 15}px) rotate(${props => props.$rotation * 0.7}deg) scale(1.02);
+      transform: translateY(${props => {
+        const moveDistance = props.$offset === 0 ? -15 : 15;
+        return (props.$offset * 0.9) + moveDistance;
+      }}px) rotate(${props => props.$rotation * 0.3}deg) scale(1.01);
     }
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
+    width: 92%;
   }
 `;
 
@@ -51,7 +69,9 @@ const ContentWrapper = styled.div`
 
   @media (max-width: 900px) {
     padding-right: 0;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -60,6 +80,15 @@ const TestimonialTitle = styled.h2`
   margin-bottom: 16px;
   color: #2d3748;
   font-weight: 600;
+
+  @media (max-width: 900px) {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const TestimonialText = styled.p`
@@ -68,6 +97,15 @@ const TestimonialText = styled.p`
   color: #4a5568;
   margin: 0;
   font-style: italic;
+
+  @media (max-width: 900px) {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
 `;
 
 const TestimonialImage = styled.img`
@@ -79,8 +117,10 @@ const TestimonialImage = styled.img`
   flex-shrink: 0;
 
   @media (max-width: 900px) {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    align-self: flex-end;
+    margin-top: -40px;
   }
 `;
 
@@ -114,7 +154,7 @@ const TestimonialSection = () => {
     const stackPosition = stackOrder.indexOf(index);
     return {
       $zIndex: testimonials.length - stackPosition,
-      $offset: stackPosition * 80,
+      $offset: stackPosition * (window.innerWidth <= 900 ? 160 : 80),
       $rotation: stackPosition * 1.5 - 1.5,
     };
   };
