@@ -104,8 +104,6 @@ const TabPanel = styled.div`
 
   .swiper {
     padding: 20px 5px;
-    position: relative;
-    overflow: visible;
   }
 
   .swiper-slide {
@@ -129,25 +127,6 @@ const Caption = styled.div`
 
 const DemoSection = () => {
   const [activeTab, setActiveTab] = useState('tab1');
-
-  const swiperConfig = {
-    modules: [Navigation, Pagination],
-    spaceBetween: 30,
-    slidesPerView: 1,
-    pagination: { 
-      clickable: true,
-      dynamicBullets: true
-    },
-    navigation: true,
-    breakpoints: {
-      640: { slidesPerView: 1.5 },
-      1024: { slidesPerView: 2 }
-    },
-    loop: true,
-    centeredSlides: true,
-    watchOverflow: true,
-    grabCursor: true
-  };
 
   return (
     <DemoSectionWrapper>
@@ -173,7 +152,19 @@ const DemoSection = () => {
       </TabList>
 
       <TabPanel active={activeTab === 'tab1'}>
-        <Swiper {...swiperConfig}>
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={30}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          navigation
+          breakpoints={{
+            640: { slidesPerView: 1.5 },
+            1024: { slidesPerView: 2 }
+          }}
+          loop={true}
+          centeredSlides={true}
+        >
           <SwiperSlide>
             <a href="weGive1.png" target="_blank" rel="noopener noreferrer">
               <DemoImage src="weGive1.png" alt="Financial Processing Platform" />
@@ -194,7 +185,19 @@ const DemoSection = () => {
       </TabPanel>
 
       <TabPanel active={activeTab === 'tab2'}>
-        <Swiper {...swiperConfig}>
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={30}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          navigation
+          breakpoints={{
+            640: { slidesPerView: 1.5 },
+            1024: { slidesPerView: 2 }
+          }}
+          loop={true}
+          centeredSlides={true}
+        >
           <SwiperSlide>
             <a href="automationHub.png" target="_blank" rel="noopener noreferrer">
               <DemoImage src="automationHub.png" alt="Automation Hub" />
@@ -215,7 +218,19 @@ const DemoSection = () => {
       </TabPanel>
 
       <TabPanel active={activeTab === 'tab3'}>
-        <Swiper {...swiperConfig}>
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={30}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          navigation
+          breakpoints={{
+            640: { slidesPerView: 1.5 },
+            1024: { slidesPerView: 2 }
+          }}
+          loop={true}
+          centeredSlides={true}
+        >
           <SwiperSlide>
             <a href="gcp.png" target="_blank" rel="noopener noreferrer">
               <DemoImage src="gcp.png" alt="Google Cloud Platform" />
