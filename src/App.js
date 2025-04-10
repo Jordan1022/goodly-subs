@@ -1,6 +1,7 @@
 // App.js
 import React from 'react';
 import styled from 'styled-components';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Header';
 import CTASection from './CTASection';
 import AboutMeSection from './AboutMeSection';
@@ -10,6 +11,8 @@ import PricingTable from './PricingTable';
 import GoodlyAbout from './GoodlyAbout';
 import TaskDefinition from './TaskDefinition';
 import Footer from './Footer';
+import BlogList from './BlogList';
+import BlogPost from './BlogPost';
 import './App.css';
 
 const AppWrapper = styled.div`
@@ -25,34 +28,31 @@ const AppWrapper = styled.div`
 
 const App = () => {
   return (
-    <AppWrapper>
+    <Router>
+      <AppWrapper>
+        <div style={{ maxWidth: "1455px", marginLeft: 'auto', marginRight: 'auto' }}>
+          <Header />
 
-      <div style={{ maxWidth: "1455px", marginLeft: 'auto', marginRight: 'auto' }}>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <CTASection />
+                <GoodlyAbout />
+                <AboutMeSection />
+                <DemoSection />
+                <PricingTable />
+                <TaskDefinition />
+                <TestimonialSection />
+              </>
+            } />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:postId" element={<BlogPost />} />
+          </Routes>
 
-        <Header />
-
-        <CTASection />
-
-        <GoodlyAbout />
-
-        {/* Define routes with Switch and Route */}
-
-        <AboutMeSection />
-
-        <DemoSection />
-
-        <PricingTable />
-
-        <TaskDefinition />
-
-        <TestimonialSection />
-
-        <Footer />
-
-      </div>
-
-    </AppWrapper>
-
+          <Footer />
+        </div>
+      </AppWrapper>
+    </Router>
   );
 };
 

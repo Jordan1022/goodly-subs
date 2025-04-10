@@ -1,7 +1,8 @@
 // Header.js
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-scroll';
+import { scroller } from 'react-scroll';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 
 const HeaderWrapper = styled.div`
 padding-top: 20px;
@@ -28,45 +29,54 @@ const Navigation = styled.div`
   /* Your navigation styles here */
 `;
 
-const Tab = styled(Link)`
+const Tab = styled.span`
 margin: 0 10px;
 color: #F4C85F;
 cursor: pointer;
 font-family: Knoxville;
+text-decoration: none;
 @media (min-width: 760px) {
   font-size: 1.5rem;
 }
-  /* Your tab styles here */
+/* Add hover effect if needed */
+&:hover {
+  /* Example: slightly brighter color */
+  filter: brightness(1.2);
+}
 `;
 
 const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleScrollLinkClick = (targetId) => {
+    const scrollOptions = {
+      smooth: true,
+      duration: 500,
+      offset: -80, // Keep your original offset
+    };
+
+    // Check if we are already on the home page
+    if (location.pathname === '/') {
+      scroller.scrollTo(targetId, scrollOptions);
+    } else {
+      // Navigate to home page first
+      navigate('/');
+      // Use setTimeout to allow navigation and rendering before scrolling
+      setTimeout(() => {
+        scroller.scrollTo(targetId, scrollOptions);
+      }, 100); // Adjust timeout if necessary (e.g., 150ms)
+    }
+  };
+
   return (
     <HeaderWrapper>
       <Logo src="GoodlyG.svg" alt="Logo" />
       <Navigation>
-        <Tab
-          smooth={true}
-          duration={500}
-          spy={true}
-          exact='true'
-          offset={-80}
-          to="about-me">SERVICES</Tab>
-        <Tab
-          smooth={true}
-          duration={500}
-          spy={true}
-          exact='true'
-          offset={-80}
-          to="pricing-table"
-        >PLANS</Tab>
-        <Tab
-          to="testimony"
-          smooth={true}
-          duration={500}
-          spy={true}
-          exact='true'
-          offset={-80}
-        >TESTIMONIALS</Tab>
+        <Tab onClick={() => handleScrollLinkClick('about-me')}>SERVICES</Tab>
+        <Tab onClick={() => handleScrollLinkClick('pricing-table')}>PLANS</Tab>
+        <Tab onClick={() => handleScrollLinkClick('testimony')}>TESTIMONIALS</Tab>
+        <Tab as={RouterLink} to="/blog">BLOG</Tab>
       </Navigation>
     </HeaderWrapper>
   );
