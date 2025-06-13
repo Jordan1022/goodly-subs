@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaRobot, FaLink, FaLaptopCode, FaLock } from 'react-icons/fa';
+import { FaRobot, FaLink, FaLaptopCode, FaLock, FaShieldAlt, FaCloud, FaTools, FaHeadset } from 'react-icons/fa';
 
 const AboutMeWrapper = styled.div`
   max-width: 1200px;
@@ -130,7 +130,7 @@ const AboutMeSection = () => {
           <Title>Our Services</Title>
           <Subtitle>
             We transform complex technical challenges into elegant, efficient solutions. 
-            Our comprehensive suite of services is designed to help your business thrive in the digital age.
+            From custom software development to comprehensive IT management, our full suite of services is designed to help your business thrive in the digital age.
           </Subtitle>
         </HeaderContent>
       </Header>
@@ -177,6 +177,50 @@ const AboutMeSection = () => {
           <ServiceDescription>
             Keep your digital infrastructure secure and efficient with our comprehensive 
             software management and maintenance services.
+          </ServiceDescription>
+        </ServiceCard>
+
+        <ServiceCard>
+          <IconWrapper>
+            <FaShieldAlt />
+          </IconWrapper>
+          <ServiceTitle>Cybersecurity & Compliance</ServiceTitle>
+          <ServiceDescription>
+            Protect your business from digital threats with robust security solutions, regular assessments, 
+            and compliance management that keeps your data safe and your reputation intact.
+          </ServiceDescription>
+        </ServiceCard>
+
+        <ServiceCard>
+          <IconWrapper>
+            <FaCloud />
+          </IconWrapper>
+          <ServiceTitle>Cloud Solutions & Backup</ServiceTitle>
+          <ServiceDescription>
+            Scale your business with confidence through strategic cloud migration, automated backups, 
+            and disaster recovery solutions that ensure your operations never skip a beat.
+          </ServiceDescription>
+        </ServiceCard>
+
+        <ServiceCard>
+          <IconWrapper>
+            <FaTools />
+          </IconWrapper>
+          <ServiceTitle>IT Infrastructure Support</ServiceTitle>
+          <ServiceDescription>
+            Keep your systems running at peak performance with proactive monitoring, maintenance, 
+            and optimization services that prevent problems before they impact your business.
+          </ServiceDescription>
+        </ServiceCard>
+
+        <ServiceCard>
+          <IconWrapper>
+            <FaHeadset />
+          </IconWrapper>
+          <ServiceTitle>Strategic IT Consulting</ServiceTitle>
+          <ServiceDescription>
+            Navigate technology decisions with confidence through expert guidance on digital transformation, 
+            vendor selection, and IT roadmaps tailored to your business goals.
           </ServiceDescription>
         </ServiceCard>
       </ServicesGrid>

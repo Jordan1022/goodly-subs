@@ -9,6 +9,7 @@ import DemoSection from './DemoSection';
 import TestimonialSection from './TestimonialSection';
 import PricingTable from './PricingTable';
 import GoodlyAbout from './GoodlyAbout';
+import ITServicesSection from './ITServicesSection';
 import TaskDefinition from './TaskDefinition';
 import Footer from './Footer';
 import BlogList from './BlogList';
@@ -38,6 +39,7 @@ const App = () => {
               <>
                 <CTASection />
                 <GoodlyAbout />
+                <ITServicesSection />
                 <AboutMeSection />
                 <DemoSection />
                 <PricingTable />

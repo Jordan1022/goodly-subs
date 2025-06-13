@@ -91,7 +91,7 @@ const GoodlyAbout = () => {
             <Title>Why Goodly?</Title>
             <Description>
                 We chose our name from an old English word meaning <HighlightedText>of exceptional quality</HighlightedText> and <HighlightedText>abundance</HighlightedText>. 
-                It perfectly captures what we deliver to our clients: abundant value through exceptional quality work.
+                It perfectly captures what we deliver to our clients: abundant value through exceptional quality work. Whether we're building your next software solution or managing your entire IT infrastructure, we bring the same commitment to excellence in everything we do.
             </Description>
             <ValueProposition>
                 <Value>
@@ -101,6 +101,10 @@ const GoodlyAbout = () => {
                 <Value>
                     <h3>Efficiency Driven</h3>
                     <p>Our experienced team turns complex technical challenges into streamlined solutions that save you time and reduce stress.</p>
+                </Value>
+                <Value>
+                    <h3>Complete IT Partnership</h3>
+                    <p>From custom development to 24/7 system monitoring, we're your one-stop solution for all things technology - so you can focus on what you do best.</p>
                 </Value>
             </ValueProposition>
         </GoodlyAboutWrapper>

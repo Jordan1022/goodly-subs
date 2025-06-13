@@ -73,6 +73,7 @@ const Header = () => {
     <HeaderWrapper>
       <Logo src="GoodlyG.svg" alt="Logo" />
       <Navigation>
+        <Tab onClick={() => handleScrollLinkClick('it-services')}>IT SERVICES</Tab>
         <Tab onClick={() => handleScrollLinkClick('about-me')}>SERVICES</Tab>
         <Tab onClick={() => handleScrollLinkClick('pricing-table')}>PLANS</Tab>
         <Tab onClick={() => handleScrollLinkClick('testimony')}>TESTIMONIALS</Tab>
