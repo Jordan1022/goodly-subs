@@ -24,11 +24,13 @@ const TestimonialWrapper = styled.div`
   position: absolute;
   display: flex;
   align-items: center;
-  background: var(--card-bg);
+  background: linear-gradient(180deg, rgba(13,16,24,0.86) 0%, rgba(13,16,24,0.80) 100%);
   padding: 40px;
   border-radius: 16px;
   box-shadow: var(--shadow-1);
   border: 1px solid var(--border);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  backdrop-filter: blur(8px) saturate(120%);
   transition: all 0.4s ease;
   cursor: pointer;
   width: 90%;

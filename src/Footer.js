@@ -41,7 +41,7 @@ const Footer = () => {
         <LinkA href="https://www.linkedin.com/in/jordan-allen-gd/" target="_blank" rel="noopener noreferrer">
           LinkedIn
         </LinkA>
-        <LinkA href="mailto:hello@goodly.dev">hello@goodly.dev</LinkA>
+        <LinkA href="mailto:jordan@goodlydevelopment.com">jordan@goodlydevelopment.com</LinkA>
       </Right>
     </FooterWrapper>
   );
