@@ -6,9 +6,10 @@ const AboutMeWrapper = styled.div`
   max-width: 1200px;
   margin: 80px auto;
   padding: 40px 20px;
-  background: linear-gradient(to bottom, #fff, #f8f9fa);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid var(--border);
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-1);
   
   @media (max-width: 1100px) {
     margin: 60px 20px;
@@ -32,7 +33,7 @@ const ImageOfMe = styled.img`
   height: 300px;
   object-fit: cover;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease;
 
   &:hover {
@@ -51,7 +52,7 @@ const HeaderContent = styled.div`
 
 const Title = styled.h2`
   font-size: 2.5rem;
-  color: #2d3748;
+  color: var(--color-text);
   margin-bottom: 1rem;
   font-weight: 700;
   
@@ -63,7 +64,7 @@ const Title = styled.h2`
 const Subtitle = styled.p`
   font-size: 1.2rem;
   line-height: 1.7;
-  color: #4a5568;
+  color: var(--color-muted);
   margin-bottom: 1.5rem;
 `;
 
@@ -79,22 +80,24 @@ const ServicesGrid = styled.div`
 `;
 
 const ServiceCard = styled.div`
-  background: white;
+  background: var(--card-bg);
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-1);
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-2);
   }
 `;
 
 const IconWrapper = styled.div`
   width: 50px;
   height: 50px;
-  background: #F4C85F;
+  background: rgba(244, 200, 95, 0.15);
+  border: 1px solid rgba(244, 200, 95, 0.4);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -103,13 +106,13 @@ const IconWrapper = styled.div`
   
   svg {
     font-size: 24px;
-    color: white;
+    color: var(--color-gold);
   }
 `;
 
 const ServiceTitle = styled.h3`
   font-size: 1.3rem;
-  color: #2d3748;
+  color: var(--color-text);
   margin-bottom: 12px;
   font-weight: 600;
 `;
@@ -117,7 +120,7 @@ const ServiceTitle = styled.h3`
 const ServiceDescription = styled.p`
   font-size: 1rem;
   line-height: 1.6;
-  color: #4a5568;
+  color: var(--color-muted);
   margin: 0;
 `;
 

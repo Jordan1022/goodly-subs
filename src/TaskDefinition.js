@@ -6,31 +6,33 @@ const TaskWrapper = styled.div`
   max-width: 1200px;
   margin: 100px auto;
   padding: 60px 20px;
-  background: linear-gradient(to bottom, rgba(244, 200, 95, 0.05), rgba(244, 200, 95, 0.02));
+  background: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid var(--border);
   border-radius: 20px;
+  box-shadow: var(--shadow-1);
 `;
 
 const Title = styled.h2`
-  font-size: 2.5rem;
-  color: #F4C85F;
+  font-size: 2.2rem;
+  color: var(--color-text);
   text-align: center;
-  margin-bottom: 2rem;
-  
+  margin-bottom: 1.4rem;
+
   @media (max-width: 768px) {
     font-size: 2rem;
   }
 `;
 
 const Description = styled.p`
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: #fff;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--color-muted);
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 3rem;
-  
+  margin: 0 auto 2.4rem;
+
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 `;
 
@@ -38,19 +40,19 @@ const ExamplesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  margin: 3rem 0;
+  margin: 2.2rem 0;
 `;
 
 const ExampleCard = styled.div`
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
   padding: 25px;
   border-radius: 12px;
-  border: 1px solid rgba(244, 200, 95, 0.1);
+  border: 1px solid var(--border);
 
   h3 {
-    color: #F4C85F;
+    color: var(--color-text);
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -63,16 +65,16 @@ const ExampleCard = styled.div`
   }
 
   li {
-    color: #fff;
+    color: var(--color-muted);
     margin-bottom: 12px;
     padding-left: 20px;
     position: relative;
-    line-height: 1.5;
-    font-size: 1.1rem;
+    line-height: 1.6;
+    font-size: 1rem;
 
     &:before {
       content: "•";
-      color: #F4C85F;
+      color: var(--color-gold);
       position: absolute;
       left: 0;
     }
@@ -80,16 +82,16 @@ const ExampleCard = styled.div`
 `;
 
 const NotATask = styled.div`
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
   padding: 30px;
   border-radius: 12px;
-  margin: 3rem 0;
-  border: 1px solid rgba(244, 200, 95, 0.1);
+  margin: 2.2rem 0;
+  border: 1px solid var(--border);
 
   h3 {
-    color: #F4C85F;
+    color: var(--color-text);
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -102,29 +104,29 @@ const NotATask = styled.div`
   }
 
   li {
-    color: #fff;
+    color: var(--color-muted);
     margin-bottom: 12px;
     padding-left: 25px;
     position: relative;
-    line-height: 1.5;
+    line-height: 1.6;
 
     &:before {
       content: "×";
-      color: #F4C85F;
+      color: var(--color-gold);
       position: absolute;
       left: 0;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
   }
 `;
 
 const HowItWorks = styled.div`
-  margin-top: 4rem;
+  margin-top: 3rem;
 
   h3 {
-    color: #F4C85F;
-    margin-bottom: 2rem;
-    font-size: 1.3rem;
+    color: var(--color-text);
+    margin-bottom: 1.6rem;
+    font-size: 1.2rem;
     text-align: center;
   }
 `;
@@ -142,7 +144,7 @@ const Step = styled.div`
   .step-number {
     width: 40px;
     height: 40px;
-    background: #F4C85F;
+    background: var(--color-gold);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -153,8 +155,9 @@ const Step = styled.div`
   }
 
   p {
-    color: #fff;
-    line-height: 1.5;
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin: 0;
   }
 `;
 
@@ -168,31 +171,31 @@ const TaskDefinition = () => {
         solve a single problem, or deliver one focused result.
       </Description>
 
-      <Title style={{ fontSize: '1.8rem' }}>Examples of Tasks We Handle:</Title>
+      <Title style={{ fontSize: '1.6rem', marginTop: '1rem' }}>Examples of Tasks We Handle:</Title>
       <ExamplesGrid>
         <ExampleCard>
-          <h3><FaCheck size={16} /> Integrations</h3>
+          <h3><FaCheck size={16} color="var(--color-gold)" /> Integrations</h3>
           <ul>
             <li>Connect my Salesforce account to my email marketing platform for automated campaigns.</li>
           </ul>
         </ExampleCard>
 
         <ExampleCard>
-          <h3><FaCheck size={16} /> Automations</h3>
+          <h3><FaCheck size={16} color="var(--color-gold)" /> Automations</h3>
           <ul>
             <li>Set up a workflow to notify my team in Slack whenever a new lead comes in.</li>
           </ul>
         </ExampleCard>
 
         <ExampleCard>
-          <h3><FaCheck size={16} /> Web Development</h3>
+          <h3><FaCheck size={16} color="var(--color-gold)" /> Web Development</h3>
           <ul>
             <li>Fix the responsive design issue on my checkout page.</li>
           </ul>
         </ExampleCard>
 
         <ExampleCard>
-          <h3><FaCheck size={16} /> Technology Management</h3>
+          <h3><FaCheck size={16} color="var(--color-gold)" /> Technology Management</h3>
           <ul>
             <li>Audit my server setup and provide recommendations for optimization.</li>
           </ul>
@@ -200,15 +203,15 @@ const TaskDefinition = () => {
       </ExamplesGrid>
 
       <NotATask>
-        <h3><FaTimes size={16} /> What's Not a Task?</h3>
-        <p style={{ color: '#fff', marginBottom: '1rem' }}>
+        <h3><FaTimes size={16} color="var(--color-gold)" /> What's Not a Task?</h3>
+        <p style={{ color: 'var(--color-muted)', marginBottom: '1rem' }}>
           Some requests are too large to fit into a single task. For example:
         </p>
         <ul>
           <li>Building an entire website or app from scratch.</li>
           <li>Setting up an end-to-end CRM system with all custom workflows.</li>
         </ul>
-        <p style={{ color: '#fff', marginTop: '1rem' }}>
+        <p style={{ color: 'var(--color-muted)', marginTop: '1rem' }}>
           For these larger projects, we'll work with you to break the request into multiple actionable tasks that fit within our system.
         </p>
       </NotATask>

@@ -2,37 +2,53 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FooterWrapper = styled.div`
-height: 100px;
-  /* Your footer styles here */
+const FooterWrapper = styled.footer`
+  padding: 28px 0 40px 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  width: 150px;
-  padding-bottom:20px;
-  @media (max-width: 1100px) {
-  padding-left: 20px;
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 `;
 
-const LinkedInLink = styled.a`
-margin-top: auto;
-color: #fff;
-  /* Your LinkedIn link styles here */
+const Left = styled.div`
+  color: var(--color-muted);
+  font-size: 0.95rem;
 `;
 
-const EmailLink = styled.a`
-margin-top: auto;
-color: #fff;
-  /* Your email link styles here */
+const Right = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`;
+
+const LinkA = styled.a`
+  color: var(--color-text);
+  font-size: 0.95rem;
+  opacity: 0.9;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  &:hover {
+    color: var(--color-gold);
+    opacity: 1;
+  }
 `;
 
 const Footer = () => {
   return (
     <FooterWrapper>
-      <LinkedInLink href="https://www.linkedin.com/in/jordan-allen-gd/" target="_blank">
-        LinkedIn
-      </LinkedInLink>
-      <EmailLink href="mailto:yourname@example.com">Email</EmailLink>
+      <Left>© {new Date().getFullYear()} Goodly Development</Left>
+      <Right>
+        <LinkA href="https://www.linkedin.com/in/jordan-allen-gd/" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </LinkA>
+        <LinkA href="mailto:jordan@goodlydevelopment.com">jordan@goodlydevelopment.com</LinkA>
+      </Right>
     </FooterWrapper>
   );
 };

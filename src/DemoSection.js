@@ -13,23 +13,25 @@ const DemoSectionWrapper = styled.div`
 
   .swiper-button-next,
   .swiper-button-prev {
-    color: #F4C85F;
+    color: var(--color-gold);
     &:after {
-      font-size: 24px;
+      font-size: 22px;
     }
     @media (max-width: 768px) {
       &:after {
-        font-size: 20px;
+        font-size: 18px;
       }
     }
   }
 
   .swiper-pagination-bullet {
-    background: #F4C85F;
+    background: var(--color-gold);
+    opacity: 0.6;
   }
 
   .swiper-pagination-bullet-active {
-    background: #F4C85F;
+    background: var(--color-gold);
+    opacity: 1;
   }
 `;
 
@@ -47,37 +49,23 @@ const TabList = styled.div`
 
 const Tab = styled.button`
   font-family: 'Poppins', sans-serif;
-  font-size: 1.3rem;
-  padding: 12px 24px;
-  border: none;
-  border-bottom: 2px solid transparent;
-  background: none;
+  font-size: 1.1rem;
+  padding: 10px 16px;
+  border: 1px solid ${props => (props.active ? 'var(--color-gold)' : 'transparent')};
+  border-radius: 999px;
+  background: ${props => (props.active ? 'rgba(244, 200, 95, 0.08)' : 'transparent')};
   cursor: pointer;
-  color: ${props => props.active ? '#F4C85F' : '#fff'};
-  transition: all 0.3s ease;
-  position: relative;
-
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: ${props => props.active ? '100%' : '0'};
-    height: 2px;
-    background-color: #F4C85F;
-    transition: width 0.3s ease;
-  }
+  color: ${props => (props.active ? 'var(--color-gold)' : 'var(--color-text)')};
+  transition: all 0.25s ease;
 
   &:hover {
-    color: #F4C85F;
-    &:after {
-      width: 100%;
-    }
+    color: var(--color-gold);
+    background: rgba(244, 200, 95, 0.08);
   }
 
   @media (max-width: 768px) {
-    font-size: 1.1rem;
-    padding: 8px 16px;
+    font-size: 1rem;
+    padding: 8px 14px;
   }
 `;
 
@@ -88,6 +76,8 @@ const DemoImage = styled.img`
   border-radius: 12px;
   transition: transform 0.3s ease;
   cursor: pointer;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-1);
 
   &:hover {
     transform: scale(1.02);
@@ -99,7 +89,7 @@ const DemoImage = styled.img`
 `;
 
 const TabPanel = styled.div`
-  display: ${props => props.active ? 'block' : 'none'};
+  display: ${props => (props.active ? 'block' : 'none')};
   margin-top: 30px;
 
   .swiper {
@@ -117,9 +107,9 @@ const TabPanel = styled.div`
 `;
 
 const Caption = styled.div`
-  color: #F4C85F;
-  margin: 20px 0;
-  font-size: 1.1rem;
+  color: var(--color-muted);
+  margin: 18px 0;
+  font-size: 1rem;
   text-align: center;
   padding: 0 20px;
   line-height: 1.6;
