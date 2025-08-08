@@ -1,8 +1,9 @@
 // Header.js
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { scroller } from 'react-scroll';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const HeaderWrapper = styled.header`
   position: sticky;
@@ -38,6 +39,10 @@ const Navigation = styled.nav`
   display: flex;
   align-items: center;
   gap: 18px;
+
+  @media (max-width: 760px) {
+    display: none;
+  }
 `;
 
 const Tab = styled.span`
@@ -75,9 +80,56 @@ const Tab = styled.span`
   }
 `;
 
+const MenuButton = styled.button`
+  display: none;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--border);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  @media (max-width: 760px) {
+    display: inline-flex;
+  }
+`;
+
+const MobileMenu = styled.div`
+  position: absolute;
+  right: 16px;
+  top: 64px;
+  background: linear-gradient(180deg, rgba(13,16,24,0.96) 0%, rgba(13,16,24,0.92) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-2);
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 120;
+
+  a, span {
+    padding: 10px 12px;
+    color: var(--color-text);
+    font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+  }
+
+  a:hover, span:hover {
+    background: rgba(244, 200, 95, 0.08);
+    color: var(--color-gold);
+  }
+`;
+
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
 
   const handleScrollLinkClick = (targetId) => {
     const scrollOptions = {
@@ -94,6 +146,7 @@ const Header = () => {
         scroller.scrollTo(targetId, scrollOptions);
       }, 120);
     }
+    closeMenu();
   };
 
   return (
@@ -106,7 +159,18 @@ const Header = () => {
           <Tab onClick={() => handleScrollLinkClick('testimony')}>Testimonials</Tab>
           <Tab as={RouterLink} to="/blog">Blog</Tab>
         </Navigation>
+        <MenuButton aria-label={menuOpen ? 'Close menu' : 'Open menu'} onClick={() => setMenuOpen(o => !o)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </MenuButton>
       </Row>
+      {menuOpen && (
+        <MobileMenu>
+          <span onClick={() => handleScrollLinkClick('about-me')}>Services</span>
+          <span onClick={() => handleScrollLinkClick('pricing-table')}>Plans</span>
+          <span onClick={() => handleScrollLinkClick('testimony')}>Testimonials</span>
+          <RouterLink to="/blog" onClick={closeMenu}>Blog</RouterLink>
+        </MobileMenu>
+      )}
     </HeaderWrapper>
   );
 };

@@ -14,9 +14,15 @@ const TestimonialsContainer = styled.div`
   padding-top: 100px;
 
   @media (max-width: 900px) {
-    min-height: 800px;
+    min-height: 680px;
     padding: 20px;
     padding-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding-top: 20px;
+    display: block;
   }
 `;
 
@@ -37,6 +43,7 @@ const TestimonialWrapper = styled.div`
   max-width: 800px;
   transform: translateY(${props => props.$offset}px) rotate(${props => props.$rotation}deg);
   z-index: ${props => props.$zIndex};
+  margin: 0 auto;
 
   &:hover {
     transform: translateY(${props => {
@@ -60,9 +67,16 @@ const TestimonialWrapper = styled.div`
     }
   }
 
+  @media (max-width: 768px) {
+    position: static;
+    transform: none;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
   @media (max-width: 480px) {
     padding: 20px;
-    width: 92%;
+    width: 100%;
   }
 `;
 

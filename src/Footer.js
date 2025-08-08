@@ -9,6 +9,12 @@ const FooterWrapper = styled.footer`
   justify-content: space-between;
   border-top: 1px solid var(--border);
   margin-top: 60px;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 `;
 
 const Left = styled.div`
