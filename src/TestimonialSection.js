@@ -24,10 +24,11 @@ const TestimonialWrapper = styled.div`
   position: absolute;
   display: flex;
   align-items: center;
-  background: white;
+  background: var(--card-bg);
   padding: 40px;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-1);
+  border: 1px solid var(--border);
   transition: all 0.4s ease;
   cursor: pointer;
   width: 90%;
@@ -40,7 +41,7 @@ const TestimonialWrapper = styled.div`
       const moveDistance = props.$offset === 0 ? -30 : 30;
       return props.$offset + moveDistance;
     }}px) rotate(${props => props.$rotation}deg) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-2);
   }
 
   @media (max-width: 900px) {
@@ -76,30 +77,30 @@ const ContentWrapper = styled.div`
 `;
 
 const TestimonialTitle = styled.h2`
-  font-size: 1.8rem;
-  margin-bottom: 16px;
-  color: #2d3748;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--color-text);
   font-weight: 600;
 
   @media (max-width: 900px) {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
   }
 
   @media (max-width: 480px) {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 `;
 
 const TestimonialText = styled.p`
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.7;
-  color: #4a5568;
+  color: var(--color-muted);
   margin: 0;
   font-style: italic;
 
   @media (max-width: 900px) {
-    font-size: 1rem;
+    font-size: 0.98rem;
     line-height: 1.6;
   }
 
@@ -113,7 +114,8 @@ const TestimonialImage = styled.img`
   height: 120px;
   border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
   flex-shrink: 0;
 
   @media (max-width: 900px) {

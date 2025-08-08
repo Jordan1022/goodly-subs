@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const GoodlyAboutWrapper = styled.div`
+const GoodlyAboutWrapper = styled.section`
     padding: 60px 20px;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: center;
-    
+
     @media (min-width: 768px) {
         margin-top: 80px;
         padding: 80px 40px;
@@ -14,74 +14,64 @@ const GoodlyAboutWrapper = styled.div`
 `;
 
 const Title = styled.h2`
-    font-size: 2.5rem;
-    color: #2d3748;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    color: var(--color-text);
+    margin-bottom: 1rem;
     font-weight: 700;
-    
-    @media (max-width: 768px) {
-        font-size: 2rem;
-    }
 `;
 
 const Description = styled.p`
-    font-size: 1.25rem;
-    line-height: 1.7;
-    color: #4a5568;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--color-muted);
     margin-bottom: 2rem;
-    
-    @media (max-width: 768px) {
-        font-size: 1.1rem;
-    }
 `;
 
 const HighlightedText = styled.span`
-    background: linear-gradient(120deg, #F4C85F 0%, #F4C85F 100%);
+    background: linear-gradient(120deg, rgba(244,200,95,0.35) 0%, rgba(244,200,95,0.35) 100%);
     background-repeat: no-repeat;
-    background-size: 100% 0.4em;
+    background-size: 100% 0.45em;
     background-position: 0 88%;
     font-weight: 600;
     padding: 0 4px;
-    transition: background-size 0.25s ease-in;
-    
-    &:hover {
-        background-size: 100% 100%;
-    }
 `;
 
 const ValueProposition = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 1.5rem;
+    margin-top: 2.2rem;
 `;
 
 const Value = styled.div`
     flex: 1;
-    min-width: 250px;
-    max-width: 350px;
-    padding: 1.5rem;
-    border-radius: 12px;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    min-width: 260px;
+    max-width: 420px;
+    padding: 1.6rem;
+    border-radius: var(--radius-md);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-1);
+    text-align: left;
     transition: transform 0.2s ease;
 
     &:hover {
-        transform: translateY(-5px);
+        transform: translateY(-4px);
     }
 
     h3 {
-        color: #2d3748;
-        margin-bottom: 1rem;
+        color: var(--color-text);
+        margin-bottom: 0.6rem;
         font-size: 1.2rem;
         font-weight: 600;
     }
 
     p {
-        color: #4a5568;
+        color: var(--color-muted);
         font-size: 1rem;
-        line-height: 1.5;
+        line-height: 1.6;
+        margin: 0;
     }
 `;
 
