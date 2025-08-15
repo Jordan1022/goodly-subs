@@ -158,6 +158,7 @@ const Header = () => {
           <Tab onClick={() => handleScrollLinkClick('pricing-table')}>Plans</Tab>
           <Tab onClick={() => handleScrollLinkClick('testimony')}>Testimonials</Tab>
           <Tab as={RouterLink} to="/blog">Blog</Tab>
+          <Tab as={RouterLink} to="/support">Support</Tab>
         </Navigation>
         <MenuButton aria-label={menuOpen ? 'Close menu' : 'Open menu'} onClick={() => setMenuOpen(o => !o)}>
           {menuOpen ? <FaTimes /> : <FaBars />}
@@ -169,6 +170,7 @@ const Header = () => {
           <span onClick={() => handleScrollLinkClick('pricing-table')}>Plans</span>
           <span onClick={() => handleScrollLinkClick('testimony')}>Testimonials</span>
           <RouterLink to="/blog" onClick={closeMenu}>Blog</RouterLink>
+          <RouterLink to="/support" onClick={closeMenu}>Support</RouterLink>
         </MobileMenu>
       )}
     </HeaderWrapper>

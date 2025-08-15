@@ -14,6 +14,7 @@ import Footer from './Footer';
 import BlogList from './BlogList';
 import BlogPost from './BlogPost';
 import './App.css';
+import SupportForm from './SupportForm';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -114,6 +115,7 @@ const App = () => {
               } />
               <Route path="/blog" element={<BlogList />} />
               <Route path="/blog/:postId" element={<BlogPost />} />
+              <Route path="/support" element={<SupportForm />} />
             </Routes>
 
             <Footer />
