@@ -72,12 +72,6 @@ const Frame = styled.iframe`
   background: transparent;
 `;
 
-const ALLOWED_CODES = [
-  // Replace or extend with real codes you provide to clients
-  'GOODLY-CLIENT',
-  'SUPPORT-2025',
-];
-
 const STORAGE_KEY = 'supportForm.accessCode';
 
 const useQuery = () => {
@@ -101,7 +95,8 @@ const SupportForm = () => {
 
   const validateCode = (value) => {
     if (!value) return false;
-    return ALLOWED_CODES.includes(value.trim());
+    //use env allowed codes
+    return process.env.ALLOWED_CODES.includes(value.trim());
   };
 
   const handleSubmit = (e) => {
@@ -124,7 +119,7 @@ const SupportForm = () => {
 
   const formSrc = useMemo(() => {
     // Replace with your Fillout form URL. You can pass the accessCode as a query param if desired.
-    const base = 'https://form.fillout.com/t/your-form-id';
+    const base = 'https://forms.fillout.com/t/pEZfhEnjx4us';
     if (!accessCode) return base;
     const url = new URL(base);
     url.searchParams.set('access_code', accessCode);
