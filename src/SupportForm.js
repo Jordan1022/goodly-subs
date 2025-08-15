@@ -95,8 +95,9 @@ const SupportForm = () => {
 
   const validateCode = (value) => {
     if (!value) return false;
-    //use env allowed codes
-    return process.env.ALLOWED_CODES.includes(value.trim());
+    // Parse allowed codes from environment variable
+    const allowedCodes = process.env.REACT_APP_ALLOWED_CODES?.split(',') || [];
+    return allowedCodes.includes(value.trim());
   };
 
   const handleSubmit = (e) => {
