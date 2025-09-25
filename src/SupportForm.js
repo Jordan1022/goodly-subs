@@ -131,7 +131,7 @@ const SupportForm = () => {
     <PageWrapper>
       <Card>
         <Title>Submit a Support Request</Title>
-        <Subtitle>For IT support, development tasks, and change requests.</Subtitle>
+        <Subtitle>For product support, development tasks, and change requests.</Subtitle>
 
         {!accessCode && (
           <form onSubmit={handleSubmit} aria-label="Access code gate">

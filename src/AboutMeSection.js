@@ -132,8 +132,8 @@ const AboutMeSection = () => {
         <HeaderContent>
           <Title>Our Services</Title>
           <Subtitle>
-            We transform complex technical challenges into elegant, efficient solutions. 
-            Our comprehensive suite of services is designed to help your business thrive in the digital age.
+            We partner with founders and operators to ship features, automate workflows, and keep products evolving. 
+            Every engagement is focused on building momentum for your product roadmap.
           </Subtitle>
         </HeaderContent>
       </Header>
@@ -156,8 +156,8 @@ const AboutMeSection = () => {
           </IconWrapper>
           <ServiceTitle>Seamless Integrations</ServiceTitle>
           <ServiceDescription>
-            Connect your business tools into a unified ecosystem where data flows effortlessly, 
-            enabling better decision-making and improved operational efficiency.
+            Connect your product stack into a unified ecosystem where data flows effortlessly, 
+            enabling richer experiences and faster decision-making.
           </ServiceDescription>
         </ServiceCard>
 
@@ -176,10 +176,10 @@ const AboutMeSection = () => {
           <IconWrapper>
             <FaLock />
           </IconWrapper>
-          <ServiceTitle>Technology Management</ServiceTitle>
+          <ServiceTitle>Product Iteration & Maintenance</ServiceTitle>
           <ServiceDescription>
-            Keep your digital infrastructure secure and efficient with our comprehensive 
-            software management and maintenance services.
+            Ship new features, polish existing flows, and keep your codebase healthy with 
+            steady, senior engineering support.
           </ServiceDescription>
         </ServiceCard>
       </ServicesGrid>

@@ -125,7 +125,7 @@ const DemoSection = () => {
           active={activeTab === 'tab1'}
           onClick={() => setActiveTab('tab1')}
         >
-          Website Development
+          Product Development
         </Tab>
         <Tab
           active={activeTab === 'tab2'}
@@ -137,7 +137,7 @@ const DemoSection = () => {
           active={activeTab === 'tab3'}
           onClick={() => setActiveTab('tab3')}
         >
-          Software Management
+          Admin Tools & Dashboards
         </Tab>
       </TabList>
 
@@ -171,7 +171,7 @@ const DemoSection = () => {
             </a>
           </SwiperSlide>
         </Swiper>
-        <Caption>Financial Processing Platform and Music Streaming Service</Caption>
+        <Caption>Modern product experiences across finance, media, and membership platforms.</Caption>
       </TabPanel>
 
       <TabPanel active={activeTab === 'tab2'}>
@@ -204,7 +204,7 @@ const DemoSection = () => {
             </a>
           </SwiperSlide>
         </Swiper>
-        <Caption>Automations for lead generation and sales</Caption>
+        <Caption>Automations for lead generation, customer onboarding, and revenue ops.</Caption>
       </TabPanel>
 
       <TabPanel active={activeTab === 'tab3'}>
@@ -237,7 +237,7 @@ const DemoSection = () => {
             </a>
           </SwiperSlide>
         </Swiper>
-        <Caption>Handling user management, resources, and cloud infrastructure</Caption>
+        <Caption>Internal dashboards, permission controls, and developer tooling for growing products.</Caption>
       </TabPanel>
     </DemoSectionWrapper>
   );

@@ -81,16 +81,16 @@ const GoodlyAbout = () => {
             <Title>Why Goodly?</Title>
             <Description>
                 We chose our name from an old English word meaning <HighlightedText>of exceptional quality</HighlightedText> and <HighlightedText>abundance</HighlightedText>. 
-                It perfectly captures what we deliver to our clients: abundant value through exceptional quality work.
+                It captures how we work with product teams: delivering abundant value through exceptional quality builds and continuous improvement.
             </Description>
             <ValueProposition>
                 <Value>
                     <h3>Quality First</h3>
-                    <p>We believe in doing things right the first time, delivering solutions that are built to last and grow with your business.</p>
+                    <p>We believe in doing things right the first time, shipping code that is reliable, maintainable, and ready to scale with your product.</p>
                 </Value>
                 <Value>
                     <h3>Efficiency Driven</h3>
-                    <p>Our experienced team turns complex technical challenges into streamlined solutions that save you time and reduce stress.</p>
+                    <p>Our experienced team turns complex product requirements into streamlined releases that ship faster and with less stress.</p>
                 </Value>
             </ValueProposition>
         </GoodlyAboutWrapper>

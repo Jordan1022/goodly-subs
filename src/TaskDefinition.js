@@ -195,9 +195,9 @@ const TaskDefinition = () => {
         </ExampleCard>
 
         <ExampleCard>
-          <h3><FaCheck size={16} color="var(--color-gold)" /> Technology Management</h3>
+          <h3><FaCheck size={16} color="var(--color-gold)" /> Feature Enhancements</h3>
           <ul>
-            <li>Audit my server setup and provide recommendations for optimization.</li>
+            <li>Design and implement an improved onboarding checklist inside our dashboard.</li>
           </ul>
         </ExampleCard>
       </ExamplesGrid>

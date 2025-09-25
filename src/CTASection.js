@@ -97,10 +97,10 @@ const CTASection = () => {
   return (
     <CTAWrapper>
       <Heading2>
-        Building <Accent>exceptional</Accent> software and IT solutions
+        Building <Accent>exceptional</Accent> software products
       </Heading2>
       <Heading3>
-        Modern development, automations, integrations and ongoing care. Thoughtfully executed, elegantly delivered.
+        Modern product development, automations, and integrations for teams who need to ship fast. Thoughtfully executed, elegantly delivered.
       </Heading3>
       <ButtonRow>
         <ButtonPrimary
