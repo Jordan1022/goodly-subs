@@ -108,8 +108,8 @@ const App = () => {
                   <GoodlyAbout />
                   <AboutMeSection />
                   <DemoSection />
-                  <PricingTable />
-                  <TaskDefinition />
+                  {/* <PricingTable /> */}
+                  {/* <TaskDefinition /> */}
                   <TestimonialSection />
                 </>
               } />
