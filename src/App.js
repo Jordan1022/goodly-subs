@@ -15,6 +15,8 @@ import BlogList from './BlogList';
 import BlogPost from './BlogPost';
 import './App.css';
 import SupportForm from './SupportForm';
+import ITLanding from './ITLanding';
+import WebLanding from './WebLanding';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -116,6 +118,8 @@ const App = () => {
               <Route path="/blog" element={<BlogList />} />
               <Route path="/blog/:postId" element={<BlogPost />} />
               <Route path="/support" element={<SupportForm />} />
+              <Route path="/it-services" element={<ITLanding />} />
+              <Route path="/web-services" element={<WebLanding />} />
             </Routes>
 
             <Footer />

@@ -1,5 +1,5 @@
 // Header.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { scroller } from 'react-scroll';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
@@ -80,6 +80,49 @@ const Tab = styled.span`
   }
 `;
 
+const Dropdown = styled.div`
+  position: relative;
+  display: inline-block;
+
+  &:hover > div {
+    display: block;
+  }
+`;
+
+const DropdownToggle = styled(Tab)`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+`;
+
+const DropdownMenu = styled.div`
+  position: absolute;
+  top: 36px;
+  left: 0;
+  background: linear-gradient(180deg, rgba(13,16,24,0.96) 0%, rgba(13,16,24,0.92) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-2);
+  padding: 8px;
+  display: none;
+  min-width: 220px;
+  z-index: 130;
+`;
+
+const DropdownItem = styled.span`
+  display: block;
+  padding: 10px 12px;
+  color: var(--color-text);
+  font-family: 'Poppins', sans-serif;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(244, 200, 95, 0.08);
+    color: var(--color-gold);
+  }
+`;
+
 const MenuButton = styled.button`
   display: none;
   background: transparent;
@@ -131,6 +174,11 @@ const Header = () => {
 
   const closeMenu = () => setMenuOpen(false);
 
+  // Ensure navigating between routes scrolls to top
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
+
   const handleScrollLinkClick = (targetId) => {
     const scrollOptions = {
       smooth: true,
@@ -154,7 +202,14 @@ const Header = () => {
       <Row>
         <Logo src="GoodlyG.svg" alt="Logo" />
         <Navigation>
-          <Tab onClick={() => handleScrollLinkClick('about-me')}>Services</Tab>
+          <Dropdown>
+            <DropdownToggle>Services</DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem as={RouterLink} to="/">Development Services</DropdownItem>
+              <DropdownItem as={RouterLink} to="/it-services">IT Services</DropdownItem>
+              <DropdownItem as={RouterLink} to="/web-services">Web Services</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
           {/* <Tab onClick={() => handleScrollLinkClick('pricing-table')}>Plans</Tab> */}
           <Tab onClick={() => handleScrollLinkClick('testimony')}>Testimonials</Tab>
           <Tab as={RouterLink} to="/blog">Blog</Tab>
@@ -166,7 +221,10 @@ const Header = () => {
       </Row>
       {menuOpen && (
         <MobileMenu>
-          <span onClick={() => handleScrollLinkClick('about-me')}>Services</span>
+          <span>Services</span>
+          <span onClick={() => handleScrollLinkClick('about-me')}>Development Services</span>
+          <RouterLink to="/it-services" onClick={closeMenu}>IT Services</RouterLink>
+          <RouterLink to="/web-services" onClick={closeMenu}>Web Services</RouterLink>
           {/* <span onClick={() => handleScrollLinkClick('pricing-table')}>Plans</span> */}
           <span onClick={() => handleScrollLinkClick('testimony')}>Testimonials</span>
           <RouterLink to="/blog" onClick={closeMenu}>Blog</RouterLink>
