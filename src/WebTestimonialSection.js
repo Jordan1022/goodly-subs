@@ -147,13 +147,13 @@ const WebTestimonialSection = () => {
 
   const testimonials = [
     {
-      title: "",
+      title: "From Bloom Digital Agency:",
       text: `"Goodly Development transformed our client delivery process completely. Their expertise in WordPress and Webflow allowed us to take on bigger projects with confidence. The custom solutions they built increased our client satisfaction by 60%, and their Cloudflare optimizations made all our sites lightning fast. They're now our go-to development partner."`,
       image: "Jenn.jpg",
       alt: "Bloom Digital Agency Director"
     },
     {
-      title: "",
+      title: "From Artisan Collective:",
       text: `"We needed a website that could showcase our portfolio beautifully while handling complex e-commerce functionality. Goodly Development delivered beyond our expectations with a custom solution that increased our online sales by 150% in just three months. Their ongoing maintenance and optimization keeps everything running perfectly."`,
       image: "tolu.jpg",
       alt: "Artisan Collective Founder"
