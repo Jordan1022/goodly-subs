@@ -29,7 +29,7 @@ const CTAWrapper = styled.section`
   }
 `;
 
-const Heading2 = styled.h2`
+const Heading2 = styled.h1`
   font-size: clamp(2rem, 3.6vw, 3rem);
   font-weight: 700;
   color: var(--color-text);

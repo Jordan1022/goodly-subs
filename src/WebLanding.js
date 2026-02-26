@@ -5,7 +5,6 @@ import WebCTASection from './WebCTASection';
 import WebAboutSection from './WebAboutSection';
 import WebServicesSection from './WebServicesSection';
 import WebDemoSection from './WebDemoSection';
-import WebTestimonialSection from './WebTestimonialSection';
 
 const WebLandingWrapper = styled.div`
   background-color: transparent;

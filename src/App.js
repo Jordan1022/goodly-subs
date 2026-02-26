@@ -1,15 +1,13 @@
 // App.js
 import React from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './Header';
 import CTASection from './CTASection';
 import AboutMeSection from './AboutMeSection';
 import DemoSection from './DemoSection';
 import TestimonialSection from './TestimonialSection';
-import PricingTable from './PricingTable';
 import GoodlyAbout from './GoodlyAbout';
-import TaskDefinition from './TaskDefinition';
 import Footer from './Footer';
 import BlogList from './BlogList';
 import BlogPost from './BlogPost';
@@ -17,6 +15,9 @@ import './App.css';
 import SupportForm from './SupportForm';
 import ITLanding from './ITLanding';
 import WebLanding from './WebLanding';
+import SeoHead from './seo/SeoHead';
+import { routeMeta } from './seo/routeMeta';
+import { buildStructuredData } from './seo/structuredData';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -94,6 +95,29 @@ const PageContainer = styled.div`
   margin-right: auto;
 `;
 
+const LocationSeo = () => {
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  if (pathname.startsWith('/blog/')) {
+    return null;
+  }
+
+  let routeKey = 'home';
+
+  if (pathname === '/it-services') {
+    routeKey = 'itServices';
+  } else if (pathname === '/web-services') {
+    routeKey = 'webServices';
+  } else if (pathname === '/support') {
+    routeKey = 'support';
+  } else if (pathname === '/blog') {
+    routeKey = 'blogIndex';
+  }
+
+  return <SeoHead meta={routeMeta[routeKey]} structuredData={buildStructuredData({ routeKey })} />;
+};
+
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
@@ -102,6 +126,7 @@ const App = () => {
         <AppWrapper>
           <PageContainer>
             <Header />
+            <LocationSeo />
 
             <Routes>
               <Route path="/" element={
@@ -116,7 +141,7 @@ const App = () => {
                 </>
               } />
               <Route path="/blog" element={<BlogList />} />
-              <Route path="/blog/:postId" element={<BlogPost />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/support" element={<SupportForm />} />
               <Route path="/it-services" element={<ITLanding />} />
               <Route path="/web-services" element={<WebLanding />} />

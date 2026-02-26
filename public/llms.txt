@@ -1,0 +1,24 @@
+# Goodly Development
+
+> Goodly Development is a software, IT, and web engineering studio focused on practical delivery for growing teams.
+
+## Canonical
+
+- https://goodlydevelopment.com/
+
+## Services
+
+- Product development and integrations: https://goodlydevelopment.com/
+- Managed IT services: https://goodlydevelopment.com/it-services
+- Web development services: https://goodlydevelopment.com/web-services
+
+## Support and Contact
+
+- Support portal: https://goodlydevelopment.com/support
+- Contact email: jordan@goodlydevelopment.com
+- LinkedIn: https://www.linkedin.com/in/jordan-allen-gd/
+
+## Content
+
+- Blog index: https://goodlydevelopment.com/blog
+- Sitemap: https://goodlydevelopment.com/sitemap.xml

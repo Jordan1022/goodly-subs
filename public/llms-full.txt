@@ -1,0 +1,32 @@
+# Goodly Development
+
+## Overview
+
+Goodly Development delivers software product development, managed IT, and web platform services.
+The business supports teams that need reliable implementation, ongoing technical operations, and modern web performance.
+
+## Primary URLs
+
+- Home: https://goodlydevelopment.com/
+- IT services: https://goodlydevelopment.com/it-services
+- Web services: https://goodlydevelopment.com/web-services
+- Support portal: https://goodlydevelopment.com/support
+- Blog: https://goodlydevelopment.com/blog
+
+## Operating Scope
+
+- Product development, automations, and integrations
+- Managed IT infrastructure and endpoint support
+- WordPress/Webflow/web app development
+- Performance, security, and maintenance operations
+
+## Contact
+
+- Email: jordan@goodlydevelopment.com
+- LinkedIn: https://www.linkedin.com/in/jordan-allen-gd/
+
+## Machine-Readable Endpoints
+
+- robots: https://goodlydevelopment.com/robots.txt
+- sitemap: https://goodlydevelopment.com/sitemap.xml
+- blog index JSON: https://goodlydevelopment.com/content/blog-index.json

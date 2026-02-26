@@ -22,6 +22,11 @@ const Row = styled.div`
   justify-content: space-between;
 `;
 
+const LogoLink = styled(RouterLink)`
+  display: inline-flex;
+  align-items: center;
+`;
+
 const Logo = styled.img`
   width: 180px;
   height: auto;
@@ -89,10 +94,44 @@ const Dropdown = styled.div`
   }
 `;
 
-const DropdownToggle = styled(Tab)`
+const DropdownToggle = styled.button`
+  position: relative;
+  padding: 8px 2px;
+  margin: 0 6px;
+  color: var(--color-text);
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: color 0.2s ease;
+  border: 0;
+  background: transparent;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 0;
+    height: 2px;
+    background: var(--color-gold);
+    transition: width 0.25s ease;
+  }
+
+  &:hover {
+    color: var(--color-gold);
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+
+  @media (min-width: 760px) {
+    font-size: 1rem;
+  }
 `;
 
 const DropdownMenu = styled.div`
@@ -179,7 +218,9 @@ const Header = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
 
-  const handleScrollLinkClick = (targetId) => {
+  const handleScrollLinkClick = (event, targetId) => {
+    event.preventDefault();
+
     const scrollOptions = {
       smooth: true,
       duration: 500,
@@ -189,10 +230,10 @@ const Header = () => {
     if (location.pathname === '/') {
       scroller.scrollTo(targetId, scrollOptions);
     } else {
-      navigate('/');
+      navigate(`/#${targetId}`);
       setTimeout(() => {
         scroller.scrollTo(targetId, scrollOptions);
-      }, 120);
+      }, 180);
     }
     closeMenu();
   };
@@ -200,7 +241,9 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <Row>
-        <Logo src="GoodlyG.svg" alt="Logo" />
+        <LogoLink to="/" aria-label="Goodly Development home">
+          <Logo src="GoodlyG.svg" alt="Goodly Development logo" />
+        </LogoLink>
         <Navigation>
           <Dropdown>
             <DropdownToggle>Services</DropdownToggle>
@@ -211,7 +254,13 @@ const Header = () => {
             </DropdownMenu>
           </Dropdown>
           {/* <Tab onClick={() => handleScrollLinkClick('pricing-table')}>Plans</Tab> */}
-          <Tab onClick={() => handleScrollLinkClick('testimony')}>Testimonials</Tab>
+          <Tab
+            as="a"
+            href="/#testimony"
+            onClick={(event) => handleScrollLinkClick(event, 'testimony')}
+          >
+            Testimonials
+          </Tab>
           <Tab as={RouterLink} to="/blog">Blog</Tab>
           <Tab as={RouterLink} to="/support">Support</Tab>
         </Navigation>
@@ -222,11 +271,11 @@ const Header = () => {
       {menuOpen && (
         <MobileMenu>
           <span>Services</span>
-          <span onClick={() => handleScrollLinkClick('about-me')}>Development Services</span>
+          <a href="/#about-me" onClick={(event) => handleScrollLinkClick(event, 'about-me')}>Development Services</a>
           <RouterLink to="/it-services" onClick={closeMenu}>IT Services</RouterLink>
           <RouterLink to="/web-services" onClick={closeMenu}>Web Services</RouterLink>
           {/* <span onClick={() => handleScrollLinkClick('pricing-table')}>Plans</span> */}
-          <span onClick={() => handleScrollLinkClick('testimony')}>Testimonials</span>
+          <a href="/#testimony" onClick={(event) => handleScrollLinkClick(event, 'testimony')}>Testimonials</a>
           <RouterLink to="/blog" onClick={closeMenu}>Blog</RouterLink>
           <RouterLink to="/support" onClick={closeMenu}>Support</RouterLink>
         </MobileMenu>
