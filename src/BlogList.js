@@ -45,6 +45,12 @@ const PostLink = styled(Link)`
   }
 `;
 
+const PostMeta = styled.p`
+  margin: 8px 0 0 0;
+  color: #ccc;
+  font-size: 0.95rem;
+`;
+
 const BlogList = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -87,11 +93,10 @@ const BlogList = () => {
       <PostList>
         {posts.map((post) => (
           <PostItem key={post.id}>
-            {/* Link to the post detail page using the Notion Page ID */}
-            <PostLink to={`/blog/${post.id}`}>
+            <PostLink to={`/blog/${post.slug || post.id}`}>
               {post.title}
             </PostLink>
-            {/* Optionally display summary or date here */}
+            {post.summary && <PostMeta>{post.summary}</PostMeta>}
           </PostItem>
         ))}
       </PostList>

@@ -1,76 +1,44 @@
-import { Client } from "@notionhq/client";
+const BLOG_INDEX_PATH = '/content/blog-index.json';
+const BLOG_POSTS_PATH = '/content/blog-posts';
 
-// Initializing a client
-const notion = new Client({
-  auth: process.env.REACT_APP_NOTION_API_KEY,
-});
+const fetchJson = async (url) => {
+  const response = await fetch(url, {
+    headers: {
+      Accept: 'application/json',
+    },
+  });
 
-export const databaseId = process.env.REACT_APP_NOTION_DATABASE_ID;
+  if (!response.ok) {
+    throw new Error(`Request failed for ${url} with status ${response.status}`);
+  }
 
-// TODO: Add function to fetch blog posts from the database
+  return response.json();
+};
+
 export const getPublishedBlogPosts = async () => {
-  if (!databaseId) {
-    console.error("Notion Database ID not found in environment variables.");
-    return [];
-  }
   try {
-    const response = await notion.databases.query({
-      database_id: databaseId,
-      filter: {
-        property: "Status", // Filter by the 'Status' property
-        select: {
-          equals: "Published", // Only fetch pages where Status is 'Published'
-        },
-      },
-      sorts: [
-        {
-          property: "Published Date", // Optional: Sort by published date
-          direction: "descending",
-        },
-      ],
-    });
-    // TODO: Map response.results to a cleaner format
-    // Map results to a cleaner format
-    const posts = response.results.map((post) => {
-      // Safely access properties, providing default values
-      const title = post.properties.Title?.title?.[0]?.plain_text ?? "Untitled";
-      const slug = post.properties.Slug?.rich_text?.[0]?.plain_text ?? post.id; // Use ID as fallback slug
-
-      // You can add more properties here as needed, e.g., summary, date
-      // const summary = post.properties.Summary?.rich_text?.[0]?.plain_text ?? "";
-      // const publishedDate = post.properties['Published Date']?.date?.start ?? null;
-
-      return {
-        id: post.id,
-        title,
-        slug,
-        // summary,
-        // publishedDate,
-      };
-    });
-    return posts;
+    const payload = await fetchJson(BLOG_INDEX_PATH);
+    return Array.isArray(payload.posts) ? payload.posts : [];
   } catch (error) {
-    console.error("Failed to fetch blog posts:", error);
+    console.error('Failed to fetch static blog index:', error);
     return [];
   }
 };
 
-// TODO: Add function to fetch a single blog post's content
-export const getBlogPostContent = async (pageId) => {
+export const getBlogPostContent = async (slugOrId) => {
   try {
-    // Fetch block children (content) for the given page ID
-    const response = await notion.blocks.children.list({
-      block_id: pageId,
-      page_size: 100, // Adjust as needed, max 100 per request
-    });
-    // TODO: Handle pagination if needed for longer posts
-    // TODO: Convert Notion blocks to React components/HTML
-    return response.results;
+    const indexPayload = await fetchJson(BLOG_INDEX_PATH);
+    const posts = Array.isArray(indexPayload.posts) ? indexPayload.posts : [];
+    const matched = posts.find((post) => post.slug === slugOrId || post.id === slugOrId);
+
+    if (!matched?.slug) {
+      return null;
+    }
+
+    const postPayload = await fetchJson(`${BLOG_POSTS_PATH}/${matched.slug}.json`);
+    return postPayload;
   } catch (error) {
-    console.error("Failed to fetch blog post content:", error);
-    return [];
+    console.error('Failed to fetch static blog post content:', error);
+    return null;
   }
 };
-
-
-export default notion; 
