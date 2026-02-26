@@ -1,13 +1,16 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 
+/**
+ * SEO head using React 19's native document metadata.
+ * React hoists <title>, <meta>, <link>, and <script> to document head.
+ */
 const SeoHead = ({ meta, structuredData = [] }) => {
   if (!meta) {
     return null;
   }
 
   return (
-    <Helmet prioritizeSeoTags>
+    <>
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
       <meta property="og:title" content={meta.title} />
@@ -22,11 +25,13 @@ const SeoHead = ({ meta, structuredData = [] }) => {
       <meta name="twitter:image" content={meta.image} />
       <link rel="canonical" href={meta.canonical} />
       {structuredData.map((entry, index) => (
-        <script key={`jsonld-${index}`} type="application/ld+json">
-          {JSON.stringify(entry)}
-        </script>
+        <script
+          key={`jsonld-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(entry) }}
+        />
       ))}
-    </Helmet>
+    </>
   );
 };
 
