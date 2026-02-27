@@ -1,7 +1,7 @@
 // CTASection.js
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-scroll';
+// import { Link } from 'react-scroll';
 
 const CTAWrapper = styled.section`
   padding: 100px 0 80px;
@@ -48,7 +48,7 @@ const ButtonRow = styled.div`
   gap: 12px;
 `;
 
-const ButtonPrimary = styled(Link)`
+/* const ButtonPrimary = styled(Link)`
   font-size: 0.95rem;
   font-weight: 600;
   padding: 13px 26px;
@@ -67,7 +67,7 @@ const ButtonPrimary = styled(Link)`
     transform: translateY(-1px);
     box-shadow: 0 8px 24px rgba(244, 200, 95, 0.3);
   }
-`;
+`; */
 
 const ButtonSecondary = styled.a`
   font-size: 0.95rem;
