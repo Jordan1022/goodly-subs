@@ -4,36 +4,29 @@ import styled from 'styled-components';
 import { Link } from 'react-scroll';
 
 const CTAWrapper = styled.section`
-  position: relative;
-  margin-top: 24px;
-  background: radial-gradient(800px 280px at 20% 10%, rgba(244, 200, 95, 0.15) 0%, rgba(244, 200, 95, 0) 70%),
-              linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-1);
-  overflow: hidden;
-  padding: 64px 40px;
-
-  &:before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
-    background-size: 24px 24px;
-    opacity: 0.3;
-    pointer-events: none;
-  }
+  padding: 100px 0 80px;
 
   @media (max-width: 640px) {
-    padding: 48px 20px;
+    padding: 72px 0 60px;
   }
 `;
 
+const Eyebrow = styled.p`
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin: 0 0 20px 0;
+  opacity: 0.85;
+`;
+
 const Heading2 = styled.h1`
-  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
   font-weight: 700;
   color: var(--color-text);
-  letter-spacing: 0.2px;
+  letter-spacing: -0.5px;
+  max-width: 820px;
 `;
 
 const Accent = styled.span`
@@ -41,11 +34,12 @@ const Accent = styled.span`
 `;
 
 const Heading3 = styled.p`
-  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
-  margin: 16px 0 28px 0;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  margin: 20px 0 36px 0;
   font-weight: 400;
   color: var(--color-muted);
-  max-width: 780px;
+  max-width: 600px;
+  line-height: 1.75;
 `;
 
 const ButtonRow = styled.div`
@@ -55,52 +49,55 @@ const ButtonRow = styled.div`
 `;
 
 const ButtonPrimary = styled(Link)`
-  font-size: 1.05rem;
-  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 26px;
   border-radius: 999px;
   background: var(--color-gold);
   color: #1a1a1a;
-  border: 1px solid rgba(0,0,0,0.12);
+  border: none;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
   will-change: transform;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 10px 22px rgba(244, 200, 95, 0.25);
+    box-shadow: 0 8px 24px rgba(244, 200, 95, 0.3);
   }
 `;
 
 const ButtonSecondary = styled.a`
-  font-size: 1.05rem;
-  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 13px 26px;
   border-radius: 999px;
   background: transparent;
-  color: var(--color-gold);
-  border: 1px solid var(--color-gold);
+  color: var(--color-text);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+  transition: transform 0.15s ease, border-color 0.2s ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
 
   &:hover {
     transform: translateY(-1px);
-    background: rgba(244, 200, 95, 0.08);
+    border-color: rgba(255, 255, 255, 0.35);
   }
 `;
 
 const ITCTASection = () => {
   return (
     <CTAWrapper>
+      <Eyebrow>Managed IT · Software Support · System Troubleshooting</Eyebrow>
       <Heading2>
         <Accent>Reliable</Accent> IT solutions for growing businesses
       </Heading2>
       <Heading3>
-        Comprehensive managed IT services, network infrastructure, and cybersecurity solutions. 
+        Comprehensive managed IT services, network infrastructure, and cybersecurity solutions.
         Keep your business running smoothly while we handle the technology.
       </Heading3>
       <ButtonRow>
