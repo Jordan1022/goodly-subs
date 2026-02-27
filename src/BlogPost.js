@@ -1,55 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import styled from 'styled-components';
 import { getBlogPostContent } from './notion';
 import SeoHead from './seo/SeoHead';
 import { getBlogPostMeta, routeMeta } from './seo/routeMeta';
 import { buildStructuredData } from './seo/structuredData';
-
-const BlogPostWrapper = styled.div`
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 40px;
-  background-color: #1a1a1a; 
-  border-radius: 8px;
-  color: #fff; 
-  line-height: 1.7;
-
-  h1, h2, h3 {
-    color: #F4C85F; 
-    margin-bottom: 1rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-  }
-
-  a {
-    color: #F4C85F;
-    text-decoration: underline;
-    &:hover {
-      filter: brightness(1.2);
-    }
-  }
-
-  /* Add styles for other Notion blocks here later (lists, images, code, etc.) */
-`;
-
-const PostDate = styled.p`
-  color: #ccc;
-  margin-top: -0.5rem;
-  margin-bottom: 1.5rem;
-`;
-
-const BackLink = styled(Link)`
-  display: inline-block;
-  margin-bottom: 30px;
-  color: #F4C85F;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
 
 const renderRichText = (richText = []) =>
   richText.map((segment, index) => {
@@ -58,23 +12,27 @@ const renderRichText = (richText = []) =>
 
     if (segment?.href) {
       node = (
-        <a href={segment.href} target="_blank" rel="noopener noreferrer">
+        <a
+          href={segment.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--accent)] underline hover:opacity-80 transition-opacity"
+        >
           {node}
         </a>
       );
     }
 
     if (segment?.annotations?.code) {
-      node = <code>{node}</code>;
+      node = (
+        <code className="bg-[var(--bg-secondary)] px-1.5 py-0.5 rounded text-sm">
+          {node}
+        </code>
+      );
     }
 
-    if (segment?.annotations?.bold) {
-      node = <strong>{node}</strong>;
-    }
-
-    if (segment?.annotations?.italic) {
-      node = <em>{node}</em>;
-    }
+    if (segment?.annotations?.bold) node = <strong>{node}</strong>;
+    if (segment?.annotations?.italic) node = <em>{node}</em>;
 
     return <React.Fragment key={`${segment?.href || plainText}-${index}`}>{node}</React.Fragment>;
   });
@@ -82,18 +40,44 @@ const renderRichText = (richText = []) =>
 const renderSingleBlock = (block) => {
   switch (block.type) {
     case 'heading_1':
-      return <h1 key={block.id}>{renderRichText(block.heading_1?.rich_text)}</h1>;
+      return (
+        <h1 key={block.id} className="text-3xl font-bold text-[var(--text-primary)] mt-10 mb-4">
+          {renderRichText(block.heading_1?.rich_text)}
+        </h1>
+      );
     case 'heading_2':
-      return <h2 key={block.id}>{renderRichText(block.heading_2?.rich_text)}</h2>;
+      return (
+        <h2 key={block.id} className="text-2xl font-semibold text-[var(--text-primary)] mt-8 mb-3">
+          {renderRichText(block.heading_2?.rich_text)}
+        </h2>
+      );
     case 'heading_3':
-      return <h3 key={block.id}>{renderRichText(block.heading_3?.rich_text)}</h3>;
+      return (
+        <h3 key={block.id} className="text-xl font-semibold text-[var(--text-primary)] mt-6 mb-3">
+          {renderRichText(block.heading_3?.rich_text)}
+        </h3>
+      );
     case 'paragraph':
-      return <p key={block.id}>{renderRichText(block.paragraph?.rich_text)}</p>;
+      return (
+        <p key={block.id} className="text-[var(--text-secondary)] text-base leading-relaxed mb-5">
+          {renderRichText(block.paragraph?.rich_text)}
+        </p>
+      );
     case 'quote':
-      return <blockquote key={block.id}>{renderRichText(block.quote?.rich_text)}</blockquote>;
+      return (
+        <blockquote
+          key={block.id}
+          className="border-l-4 border-[var(--accent)] pl-5 my-6 text-[var(--text-secondary)] italic"
+        >
+          {renderRichText(block.quote?.rich_text)}
+        </blockquote>
+      );
     case 'code':
       return (
-        <pre key={block.id}>
+        <pre
+          key={block.id}
+          className="bg-[var(--bg-secondary)] border border-[var(--border)] rounded-lg p-4 my-6 overflow-x-auto text-sm"
+        >
           <code>{renderRichText(block.code?.rich_text)}</code>
         </pre>
       );
@@ -112,52 +96,40 @@ const renderNotionBlocks = (blocks = []) => {
   let listItems = [];
 
   const flushList = () => {
-    if (!listType || listItems.length === 0) {
-      return;
-    }
-
+    if (!listType || listItems.length === 0) return;
     if (listType === 'bulleted') {
-      output.push(<ul key={`list-bulleted-${output.length}`}>{listItems}</ul>);
+      output.push(
+        <ul key={`list-bulleted-${output.length}`} className="list-disc pl-6 my-4 flex flex-col gap-2 text-[var(--text-secondary)]">
+          {listItems}
+        </ul>
+      );
     } else {
-      output.push(<ol key={`list-numbered-${output.length}`}>{listItems}</ol>);
+      output.push(
+        <ol key={`list-numbered-${output.length}`} className="list-decimal pl-6 my-4 flex flex-col gap-2 text-[var(--text-secondary)]">
+          {listItems}
+        </ol>
+      );
     }
-
     listType = null;
     listItems = [];
   };
 
   blocks.forEach((block) => {
     if (block.type === 'bulleted_list_item') {
-      if (listType !== 'bulleted') {
-        flushList();
-        listType = 'bulleted';
-      }
-
+      if (listType !== 'bulleted') { flushList(); listType = 'bulleted'; }
       const item = renderSingleBlock(block);
-      if (item) {
-        listItems.push(item);
-      }
+      if (item) listItems.push(item);
       return;
     }
-
     if (block.type === 'numbered_list_item') {
-      if (listType !== 'numbered') {
-        flushList();
-        listType = 'numbered';
-      }
-
+      if (listType !== 'numbered') { flushList(); listType = 'numbered'; }
       const item = renderSingleBlock(block);
-      if (item) {
-        listItems.push(item);
-      }
+      if (item) listItems.push(item);
       return;
     }
-
     flushList();
     const rendered = renderSingleBlock(block);
-    if (rendered) {
-      output.push(rendered);
-    }
+    if (rendered) output.push(rendered);
   });
 
   flushList();
@@ -172,14 +144,10 @@ const BlogPost = () => {
 
   useEffect(() => {
     const fetchContent = async () => {
-      if (!slug) {
-        return;
-      }
-
+      if (!slug) return;
       try {
         setLoading(true);
         const postPayload = await getBlogPostContent(slug);
-
         if (!postPayload) {
           setPost(null);
           setError('This blog post could not be found.');
@@ -195,7 +163,6 @@ const BlogPost = () => {
         setLoading(false);
       }
     };
-
     fetchContent();
   }, [slug]);
 
@@ -207,34 +174,50 @@ const BlogPost = () => {
 
   if (loading) {
     return (
-      <BlogPostWrapper>
+      <article className="max-w-2xl mx-auto py-16">
         <SeoHead meta={meta} structuredData={structuredData} />
-        <p style={{ textAlign: 'center', color: '#ccc' }}>Loading content...</p>
-      </BlogPostWrapper>
+        <p className="text-center text-[var(--text-muted)]">Loading content...</p>
+      </article>
     );
   }
 
   if (error) {
     return (
-      <BlogPostWrapper>
+      <article className="max-w-2xl mx-auto py-16">
         <SeoHead meta={meta} structuredData={structuredData} />
-        <BackLink to="/blog">&larr; Back to Blog List</BackLink>
-        <p style={{ textAlign: 'center', color: 'red' }}>{error}</p>
-      </BlogPostWrapper>
+        <Link
+          to="/blog"
+          className="inline-flex items-center text-sm text-[var(--accent)] hover:underline mb-8"
+        >
+          &larr; Back to Blog
+        </Link>
+        <p className="text-center text-red-500">{error}</p>
+      </article>
     );
   }
 
   return (
-    <BlogPostWrapper>
+    <article className="max-w-2xl mx-auto py-16">
       <SeoHead meta={meta} structuredData={structuredData} />
-      <BackLink to="/blog">&larr; Back to Blog List</BackLink>
-      <h1>{post?.title || 'Blog Post'}</h1>
-      {post?.publishedDate && <PostDate>Published: {post.publishedDate}</PostDate>}
-      {Array.isArray(post?.blocks) && post.blocks.length > 0
-        ? renderNotionBlocks(post.blocks)
-        : <p>This post appears to be empty.</p>}
-    </BlogPostWrapper>
+      <Link
+        to="/blog"
+        className="inline-flex items-center text-sm text-[var(--accent)] hover:underline mb-8"
+      >
+        &larr; Back to Blog
+      </Link>
+      <h1 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2">
+        {post?.title || 'Blog Post'}
+      </h1>
+      {post?.publishedDate && (
+        <p className="text-[var(--text-muted)] text-sm mb-10">{post.publishedDate}</p>
+      )}
+      <div>
+        {Array.isArray(post?.blocks) && post.blocks.length > 0
+          ? renderNotionBlocks(post.blocks)
+          : <p className="text-[var(--text-muted)]">This post appears to be empty.</p>}
+      </div>
+    </article>
   );
 };
 
-export default BlogPost; 
+export default BlogPost;

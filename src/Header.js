@@ -1,286 +1,176 @@
-// Header.js
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { scroller } from 'react-scroll';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
-
-const HeaderWrapper = styled.header`
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 18px 0;
-  backdrop-filter: saturate(120%) blur(10px);
-  background: linear-gradient(180deg, rgba(10, 12, 20, 0.75) 0%, rgba(10, 12, 20, 0.35) 100%);
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 40px;
-`;
-
-const Row = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const LogoLink = styled(RouterLink)`
-  display: inline-flex;
-  align-items: center;
-`;
-
-const Logo = styled.img`
-  width: 180px;
-  height: auto;
-  margin-left: 8px;
-  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.25));
-  @media (max-width: 760px) {
-    width: 140px;
-  }
-  @media (max-width: 500px) {
-    width: 100px;
-  }
-`;
-
-const Navigation = styled.nav`
-  display: flex;
-  align-items: center;
-  gap: 18px;
-
-  @media (max-width: 760px) {
-    display: none;
-  }
-`;
-
-const Tab = styled.span`
-  position: relative;
-  padding: 8px 2px;
-  margin: 0 6px;
-  color: var(--color-text);
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  transition: color 0.2s ease;
-
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 2px;
-    width: 0;
-    height: 2px;
-    background: var(--color-gold);
-    transition: width 0.25s ease;
-  }
-
-  &:hover {
-    color: var(--color-gold);
-  }
-
-  &:hover:after {
-    width: 100%;
-  }
-
-  @media (min-width: 760px) {
-    font-size: 1rem;
-  }
-`;
-
-const Dropdown = styled.div`
-  position: relative;
-  display: inline-block;
-
-  &:hover > div {
-    display: block;
-  }
-`;
-
-const DropdownToggle = styled.button`
-  position: relative;
-  padding: 8px 2px;
-  margin: 0 6px;
-  color: var(--color-text);
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  transition: color 0.2s ease;
-  border: 0;
-  background: transparent;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 2px;
-    width: 0;
-    height: 2px;
-    background: var(--color-gold);
-    transition: width 0.25s ease;
-  }
-
-  &:hover {
-    color: var(--color-gold);
-  }
-
-  &:hover:after {
-    width: 100%;
-  }
-
-  @media (min-width: 760px) {
-    font-size: 1rem;
-  }
-`;
-
-const DropdownMenu = styled.div`
-  position: absolute;
-  top: 36px;
-  left: 0;
-  background: linear-gradient(180deg, rgba(13,16,24,0.96) 0%, rgba(13,16,24,0.92) 100%);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow-2);
-  padding: 8px;
-  display: none;
-  min-width: 220px;
-  z-index: 130;
-`;
-
-const DropdownItem = styled.span`
-  display: block;
-  padding: 10px 12px;
-  color: var(--color-text);
-  font-family: 'Poppins', sans-serif;
-  border-radius: 8px;
-  cursor: pointer;
-
-  &:hover {
-    background: rgba(244, 200, 95, 0.08);
-    color: var(--color-gold);
-  }
-`;
-
-const MenuButton = styled.button`
-  display: none;
-  background: transparent;
-  color: var(--color-text);
-  border: 1px solid var(--border);
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  @media (max-width: 760px) {
-    display: inline-flex;
-  }
-`;
-
-const MobileMenu = styled.div`
-  position: absolute;
-  right: 16px;
-  top: 64px;
-  background: linear-gradient(180deg, rgba(13,16,24,0.96) 0%, rgba(13,16,24,0.92) 100%);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow-2);
-  padding: 10px 8px;
-  display: flex;
-  flex-direction: column;
-  min-width: 180px;
-  z-index: 120;
-
-  a, span {
-    padding: 10px 12px;
-    color: var(--color-text);
-    font-family: 'Poppins', sans-serif;
-    border-radius: 8px;
-  }
-
-  a:hover, span:hover {
-    background: rgba(244, 200, 95, 0.08);
-    color: var(--color-gold);
-  }
-`;
+import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
+import ThemeToggle from './components/ThemeToggle';
 
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setServicesOpen(false);
+  };
 
-  // Ensure navigating between routes scrolls to top
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
 
   const handleScrollLinkClick = (event, targetId) => {
     event.preventDefault();
-
-    const scrollOptions = {
-      smooth: true,
-      duration: 500,
-      offset: -80,
-    };
-
+    const scrollOptions = { smooth: true, duration: 500, offset: -80 };
     if (location.pathname === '/') {
       scroller.scrollTo(targetId, scrollOptions);
     } else {
       navigate(`/#${targetId}`);
-      setTimeout(() => {
-        scroller.scrollTo(targetId, scrollOptions);
-      }, 180);
+      setTimeout(() => scroller.scrollTo(targetId, scrollOptions), 180);
     }
     closeMenu();
   };
 
+  const navLinkClass = "text-[var(--text-secondary)] font-medium text-sm hover:text-[var(--accent)] transition-colors relative";
+
   return (
-    <HeaderWrapper>
-      <Row>
-        <LogoLink to="/" aria-label="Goodly Development home">
-          <Logo src="GoodlyG.svg" alt="Goodly Development logo" />
-        </LogoLink>
-        <Navigation>
-          <Dropdown>
-            <DropdownToggle>Services</DropdownToggle>
-            <DropdownMenu>
-              <DropdownItem as={RouterLink} to="/">Development Services</DropdownItem>
-              <DropdownItem as={RouterLink} to="/it-services">IT Services</DropdownItem>
-              <DropdownItem as={RouterLink} to="/web-services">Web Services</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-          {/* <Tab onClick={() => handleScrollLinkClick('pricing-table')}>Plans</Tab> */}
-          <Tab
-            as="a"
-            href="/#testimony"
-            onClick={(event) => handleScrollLinkClick(event, 'testimony')}
-          >
-            Testimonials
-          </Tab>
-          <Tab as={RouterLink} to="/blog">Blog</Tab>
-          <Tab as={RouterLink} to="/support">Support</Tab>
-        </Navigation>
-        <MenuButton aria-label={menuOpen ? 'Close menu' : 'Open menu'} onClick={() => setMenuOpen(o => !o)}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </MenuButton>
-      </Row>
+    <header className="sticky top-0 z-50 bg-[var(--bg-primary)]/95 backdrop-blur-sm border-b border-[var(--border)] mb-0">
+      <div className="max-w-site mx-auto px-5 md:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <RouterLink to="/" aria-label="Goodly Development home" className="inline-flex items-center">
+            <img
+              src="GoodlyG.svg"
+              alt="Goodly Development logo"
+              className="w-36 md:w-44 h-auto"
+            />
+          </RouterLink>
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-1">
+            {/* Services dropdown */}
+            <div className="relative group">
+              <button className={`${navLinkClass} inline-flex items-center gap-1 px-3 py-2 bg-transparent border-0`}>
+                Services
+                <FiChevronDown size={14} className="mt-0.5" />
+              </button>
+              <div className="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl shadow-lg p-2 min-w-[220px]">
+                  <RouterLink
+                    to="/"
+                    className="block px-4 py-2.5 rounded-lg text-sm text-[var(--text-secondary)] hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-colors"
+                  >
+                    Development Services
+                  </RouterLink>
+                  <RouterLink
+                    to="/it-services"
+                    className="block px-4 py-2.5 rounded-lg text-sm text-[var(--text-secondary)] hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-colors"
+                  >
+                    IT Services
+                  </RouterLink>
+                  <RouterLink
+                    to="/web-services"
+                    className="block px-4 py-2.5 rounded-lg text-sm text-[var(--text-secondary)] hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-colors"
+                  >
+                    Web Services
+                  </RouterLink>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="/#testimony"
+              onClick={(e) => handleScrollLinkClick(e, 'testimony')}
+              className={`${navLinkClass} px-3 py-2`}
+            >
+              Testimonials
+            </a>
+            <RouterLink to="/blog" className={`${navLinkClass} px-3 py-2`}>
+              Blog
+            </RouterLink>
+            <RouterLink to="/support" className={`${navLinkClass} px-3 py-2`}>
+              Support
+            </RouterLink>
+            <div className="ml-3">
+              <ThemeToggle />
+            </div>
+          </nav>
+
+          {/* Mobile controls */}
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setMenuOpen(o => !o)}
+              className="flex items-center justify-center w-9 h-9 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            >
+              {menuOpen ? <FiX size={18} /> : <FiMenu size={18} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
       {menuOpen && (
-        <MobileMenu>
-          <span>Services</span>
-          <a href="/#about-me" onClick={(event) => handleScrollLinkClick(event, 'about-me')}>Development Services</a>
-          <RouterLink to="/it-services" onClick={closeMenu}>IT Services</RouterLink>
-          <RouterLink to="/web-services" onClick={closeMenu}>Web Services</RouterLink>
-          {/* <span onClick={() => handleScrollLinkClick('pricing-table')}>Plans</span> */}
-          <a href="/#testimony" onClick={(event) => handleScrollLinkClick(event, 'testimony')}>Testimonials</a>
-          <RouterLink to="/blog" onClick={closeMenu}>Blog</RouterLink>
-          <RouterLink to="/support" onClick={closeMenu}>Support</RouterLink>
-        </MobileMenu>
+        <div className="md:hidden border-t border-[var(--border)] bg-[var(--bg-card)]">
+          <div className="max-w-site mx-auto px-5 py-4 flex flex-col gap-1">
+            <button
+              onClick={() => setServicesOpen(o => !o)}
+              className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium text-[var(--text-secondary)] bg-transparent border-0 rounded-lg hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-colors"
+            >
+              Services
+              <FiChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {servicesOpen && (
+              <div className="pl-4 flex flex-col gap-1">
+                <RouterLink
+                  to="/"
+                  onClick={closeMenu}
+                  className="px-3 py-2 text-sm text-[var(--text-secondary)] rounded-lg hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-colors"
+                >
+                  Development Services
+                </RouterLink>
+                <RouterLink
+                  to="/it-services"
+                  onClick={closeMenu}
+                  className="px-3 py-2 text-sm text-[var(--text-secondary)] rounded-lg hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-colors"
+                >
+                  IT Services
+                </RouterLink>
+                <RouterLink
+                  to="/web-services"
+                  onClick={closeMenu}
+                  className="px-3 py-2 text-sm text-[var(--text-secondary)] rounded-lg hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-colors"
+                >
+                  Web Services
+                </RouterLink>
+              </div>
+            )}
+            <a
+              href="/#testimony"
+              onClick={(e) => handleScrollLinkClick(e, 'testimony')}
+              className="px-3 py-2.5 text-sm font-medium text-[var(--text-secondary)] rounded-lg hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-colors"
+            >
+              Testimonials
+            </a>
+            <RouterLink
+              to="/blog"
+              onClick={closeMenu}
+              className="px-3 py-2.5 text-sm font-medium text-[var(--text-secondary)] rounded-lg hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-colors"
+            >
+              Blog
+            </RouterLink>
+            <RouterLink
+              to="/support"
+              onClick={closeMenu}
+              className="px-3 py-2.5 text-sm font-medium text-[var(--text-secondary)] rounded-lg hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-colors"
+            >
+              Support
+            </RouterLink>
+          </div>
+        </div>
       )}
-    </HeaderWrapper>
+    </header>
   );
 };
 

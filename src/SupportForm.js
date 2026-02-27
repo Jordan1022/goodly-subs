@@ -1,76 +1,5 @@
-// SupportForm.js
 import React, { useEffect, useMemo, useState } from 'react';
-import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
-
-const PageWrapper = styled.section`
-  margin: 40px 0 80px 0;
-`;
-
-const Card = styled.div`
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-1);
-  padding: 24px;
-`;
-
-const Title = styled.h1`
-  font-size: 2rem;
-  margin-bottom: 8px;
-`;
-
-const Subtitle = styled.p`
-  color: var(--color-muted);
-  margin-top: 0;
-`;
-
-const FormRow = styled.div`
-  display: flex;
-  gap: 12px;
-  margin-top: 16px;
-  @media (max-width: 600px) {
-    flex-direction: column;
-  }
-`;
-
-const Input = styled.input`
-  flex: 1;
-  padding: 12px 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background: rgba(255,255,255,0.03);
-  color: var(--color-text);
-`;
-
-const Button = styled.button`
-  padding: 12px 16px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  background: rgba(244, 200, 95, 0.08);
-  color: var(--color-gold);
-  cursor: pointer;
-`;
-
-const HelpText = styled.p`
-  color: var(--color-muted);
-  font-size: 0.95rem;
-`;
-
-const IframeWrapper = styled.div`
-  margin-top: 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-1);
-`;
-
-const Frame = styled.iframe`
-  width: 100%;
-  height: 1200px;
-  border: 0;
-  background: transparent;
-`;
 
 const STORAGE_KEY = 'supportForm.accessCode';
 
@@ -95,7 +24,6 @@ const SupportForm = () => {
 
   const validateCode = (value) => {
     if (!value) return false;
-    // Parse allowed codes from environment variable
     const allowedCodes = process.env.REACT_APP_ALLOWED_CODES?.split(',') || [];
     return allowedCodes.includes(value.trim());
   };
@@ -119,7 +47,6 @@ const SupportForm = () => {
   };
 
   const formSrc = useMemo(() => {
-    // Replace with your Fillout form URL. You can pass the accessCode as a query param if desired.
     const base = 'https://forms.fillout.com/t/pEZfhEnjx4us';
     if (!accessCode) return base;
     const url = new URL(base);
@@ -128,47 +55,76 @@ const SupportForm = () => {
   }, [accessCode]);
 
   return (
-    <PageWrapper>
-      <Card>
-        <Title>Submit a Support Request</Title>
-        <Subtitle>For product support, development tasks, and change requests.</Subtitle>
+    <section className="py-12 md:py-16">
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl shadow-[var(--shadow)] p-8 md:p-10">
+          <h1 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2">
+            Submit a Support Request
+          </h1>
+          <p className="text-[var(--text-secondary)] text-base mb-8">
+            For product support, development tasks, and change requests.
+          </p>
 
-        {!accessCode && (
-          <form onSubmit={handleSubmit} aria-label="Access code gate">
-            <HelpText>Enter the access code you received from us. You can also use a direct link with <code>?code=YOURCODE</code>.</HelpText>
-            <FormRow>
-              <Input
-                type="text"
-                inputMode="text"
-                autoComplete="one-time-code"
-                placeholder="Enter access code"
-                value={codeInput}
-                onChange={(e) => setCodeInput(e.target.value)}
-                aria-label="Access code"
-              />
-              <Button type="submit">Unlock</Button>
-            </FormRow>
-            {error && <HelpText style={{ color: '#ffb3b3' }}>{error}</HelpText>}
-            <HelpText style={{ marginTop: 12 }}>Need access? Contact us and we will provide a code.</HelpText>
-          </form>
-        )}
+          {!accessCode && (
+            <form onSubmit={handleSubmit} aria-label="Access code gate">
+              <p className="text-[var(--text-muted)] text-sm mb-4">
+                Enter the access code you received from us. You can also use a direct link with{' '}
+                <code className="bg-[var(--bg-secondary)] px-1.5 py-0.5 rounded text-xs">?code=YOURCODE</code>.
+              </p>
+              <div className="flex gap-3 flex-col sm:flex-row">
+                <input
+                  type="text"
+                  inputMode="text"
+                  autoComplete="one-time-code"
+                  placeholder="Enter access code"
+                  value={codeInput}
+                  onChange={(e) => setCodeInput(e.target.value)}
+                  aria-label="Access code"
+                  className="flex-1 px-4 py-3 rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all"
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-3 rounded-lg bg-[var(--accent)] text-white font-medium text-sm hover:bg-[var(--accent-hover)] transition-colors"
+                >
+                  Unlock
+                </button>
+              </div>
+              {error && (
+                <p className="text-red-500 text-sm mt-3">{error}</p>
+              )}
+              <p className="text-[var(--text-muted)] text-sm mt-4">
+                Need access? Contact us and we will provide a code.
+              </p>
+            </form>
+          )}
 
-        {accessCode && (
-          <div>
-            <HelpText>
-              Access granted with code <strong>{accessCode}</strong>. <Button onClick={handleClear} type="button">Change code</Button>
-            </HelpText>
-            <IframeWrapper>
-              <Frame
-                title="Support Request Form"
-                src={formSrc}
-                allow="clipboard-write; microphone; camera"
-              />
-            </IframeWrapper>
-          </div>
-        )}
-      </Card>
-    </PageWrapper>
+          {accessCode && (
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <p className="text-[var(--text-muted)] text-sm m-0">
+                  Access granted with code <strong className="text-[var(--text-primary)]">{accessCode}</strong>
+                </p>
+                <button
+                  onClick={handleClear}
+                  type="button"
+                  className="text-sm text-[var(--accent)] hover:underline"
+                >
+                  Change code
+                </button>
+              </div>
+              <div className="border border-[var(--border)] rounded-xl overflow-hidden">
+                <iframe
+                  title="Support Request Form"
+                  src={formSrc}
+                  allow="clipboard-write; microphone; camera"
+                  className="w-full h-[1200px] border-0 bg-transparent"
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
   );
 };
 

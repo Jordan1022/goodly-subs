@@ -1,55 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import { getPublishedBlogPosts } from './notion';
-
-const BlogListWrapper = styled.div`
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #1a1a1a; // Slightly lighter background for contrast
-  border-radius: 8px;
-
-  h2 {
-    color: #F4C85F;
-    text-align: center;
-    margin-bottom: 30px;
-    font-family: 'Knoxville', sans-serif; // Use existing header font if desired
-  }
-`;
-
-const PostList = styled.ul`
-  list-style: none;
-  padding: 0;
-`;
-
-const PostItem = styled.li`
-  margin-bottom: 15px;
-  border-bottom: 1px solid #333; // Separator line
-  padding-bottom: 15px;
-
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-const PostLink = styled(Link)`
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #F4C85F;
-  }
-`;
-
-const PostMeta = styled.p`
-  margin: 8px 0 0 0;
-  color: #ccc;
-  font-size: 0.95rem;
-`;
 
 const BlogList = () => {
   const [posts, setPosts] = useState([]);
@@ -64,44 +15,63 @@ const BlogList = () => {
         setPosts(fetchedPosts);
         setError(null);
       } catch (err) {
-        console.error("Error fetching posts:", err);
+        console.error('Error fetching posts:', err);
         setError('Failed to load posts.');
-        setPosts([]); // Clear posts on error
+        setPosts([]);
       } finally {
         setLoading(false);
       }
     };
-
     fetchPosts();
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
 
   if (loading) {
-    return <BlogListWrapper><p style={{ textAlign: 'center', color: '#ccc' }}>Loading posts...</p></BlogListWrapper>;
+    return (
+      <div className="max-w-2xl mx-auto py-16">
+        <p className="text-center text-[var(--text-muted)]">Loading posts...</p>
+      </div>
+    );
   }
 
   if (error) {
-    return <BlogListWrapper><p style={{ textAlign: 'center', color: 'red' }}>{error}</p></BlogListWrapper>;
+    return (
+      <div className="max-w-2xl mx-auto py-16">
+        <p className="text-center text-red-500">{error}</p>
+      </div>
+    );
   }
 
   if (posts.length === 0) {
-    return <BlogListWrapper><p style={{ textAlign: 'center', color: '#ccc' }}>No published posts found.</p></BlogListWrapper>;
+    return (
+      <div className="max-w-2xl mx-auto py-16">
+        <p className="text-center text-[var(--text-muted)]">No published posts found.</p>
+      </div>
+    );
   }
 
   return (
-    <BlogListWrapper>
-      <h2>Blog</h2>
-      <PostList>
+    <div className="max-w-2xl mx-auto py-16">
+      <h1 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-10">Blog</h1>
+      <div className="flex flex-col gap-0">
         {posts.map((post) => (
-          <PostItem key={post.id}>
-            <PostLink to={`/blog/${post.slug || post.id}`}>
+          <Link
+            key={post.id}
+            to={`/blog/${post.slug || post.id}`}
+            className="group block py-6 border-b border-[var(--border)] last:border-b-0 transition-colors"
+          >
+            <h2 className="text-lg font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
               {post.title}
-            </PostLink>
-            {post.summary && <PostMeta>{post.summary}</PostMeta>}
-          </PostItem>
+            </h2>
+            {post.summary && (
+              <p className="mt-2 text-[var(--text-secondary)] text-sm leading-relaxed line-clamp-2">
+                {post.summary}
+              </p>
+            )}
+          </Link>
         ))}
-      </PostList>
-    </BlogListWrapper>
+      </div>
+    </div>
   );
 };
 
-export default BlogList; 
+export default BlogList;

@@ -1,55 +1,30 @@
-// Footer.js
 import React from 'react';
-import styled from 'styled-components';
-
-const FooterWrapper = styled.footer`
-  padding: 28px 0 40px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid var(--border);
-  margin-top: 60px;
-
-  @media (max-width: 640px) {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-`;
-
-const Left = styled.div`
-  color: var(--color-muted);
-  font-size: 0.95rem;
-`;
-
-const Right = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 16px;
-`;
-
-const LinkA = styled.a`
-  color: var(--color-text);
-  font-size: 0.95rem;
-  opacity: 0.9;
-  transition: color 0.2s ease, opacity 0.2s ease;
-  &:hover {
-    color: var(--color-gold);
-    opacity: 1;
-  }
-`;
 
 const Footer = () => {
   return (
-    <FooterWrapper>
-      <Left>© {new Date().getFullYear()} Goodly Development</Left>
-      <Right>
-        <LinkA href="https://www.linkedin.com/in/jordan-allen-gd/" target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </LinkA>
-        <LinkA href="mailto:jordan@goodlydevelopment.com">jordan@goodlydevelopment.com</LinkA>
-      </Right>
-    </FooterWrapper>
+    <footer className="border-t border-[var(--border)] mt-16 py-8">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="text-[var(--text-muted)] text-sm m-0">
+          &copy; {new Date().getFullYear()} Goodly Development
+        </p>
+        <div className="flex items-center gap-6">
+          <a
+            href="https://www.linkedin.com/in/jordan-allen-gd/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--text-secondary)] text-sm hover:text-[var(--accent)] transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="mailto:jordan@goodlydevelopment.com"
+            className="text-[var(--text-secondary)] text-sm hover:text-[var(--accent)] transition-colors"
+          >
+            jordan@goodlydevelopment.com
+          </a>
+        </div>
+      </div>
+    </footer>
   );
 };
 
