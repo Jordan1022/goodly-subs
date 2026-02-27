@@ -71,21 +71,21 @@ const ButtonRow = styled.div`
 
 const ButtonSecondary = styled.a`
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 13px 26px;
   border-radius: 999px;
-  background: transparent;
-  color: var(--color-text);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--color-gold);
+  color: #1a1a1a;
+  border: none;
   cursor: pointer;
-  transition: transform 0.15s ease, border-color 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
 
   &:hover {
     transform: translateY(-1px);
-    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 24px rgba(244, 200, 95, 0.3);
   }
 `;
 
