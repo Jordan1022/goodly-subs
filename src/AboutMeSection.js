@@ -1,78 +1,73 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaRobot, FaLink, FaLaptopCode, FaLock } from 'react-icons/fa';
 
 const AboutMeWrapper = styled.div`
   max-width: 1200px;
-  margin: 80px auto;
-  padding: 40px 20px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  box-shadow: var(--shadow-1);
-  
-  @media (max-width: 1100px) {
-    margin: 60px 20px;
-  }
+  margin: 80px auto 0;
+  padding: 0;
 `;
 
-const Header = styled.div`
+const SectionHeader = styled.div`
   display: flex;
-  align-items: center;
-  gap: 40px;
-  margin-bottom: 60px;
-  
-  @media (max-width: 1100px) {
+  align-items: flex-start;
+  gap: 60px;
+  margin-bottom: 72px;
+
+  @media (max-width: 900px) {
     flex-direction: column;
-    text-align: center;
+    gap: 32px;
   }
 `;
 
 const ImageOfMe = styled.img`
-  width: 300px;
-  height: 300px;
+  width: 220px;
+  height: 280px;
   object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  filter: grayscale(20%);
 
-  &:hover {
-    transform: translateY(-5px);
-  }
-  
   @media (max-width: 780px) {
-    width: 250px;
-    height: 250px;
+    width: 160px;
+    height: 200px;
   }
 `;
 
 const HeaderContent = styled.div`
   flex: 1;
+  padding-top: 4px;
+`;
+
+const Eyebrow = styled.p`
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin: 0 0 16px 0;
+  opacity: 0.85;
 `;
 
 const Title = styled.h2`
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   color: var(--color-text);
-  margin-bottom: 1rem;
-  font-weight: 700;
-  
-  @media (max-width: 780px) {
-    font-size: 2rem;
-  }
+  margin: 0 0 20px 0;
+  font-weight: 600;
 `;
 
 const Subtitle = styled.p`
-  font-size: 1.2rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.8;
   color: var(--color-muted);
-  margin-bottom: 1.5rem;
+  margin: 0;
+  max-width: 520px;
 `;
 
 const ServicesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  padding: 20px;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -80,108 +75,86 @@ const ServicesGrid = styled.div`
 `;
 
 const ServiceCard = styled.div`
-  background: var(--card-bg);
-  padding: 30px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-1);
-  transition: all 0.3s ease;
+  padding: 40px 36px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-2);
+    background: rgba(255, 255, 255, 0.02);
   }
 `;
 
-const IconWrapper = styled.div`
-  width: 50px;
-  height: 50px;
-  background: rgba(244, 200, 95, 0.15);
-  border: 1px solid rgba(244, 200, 95, 0.4);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const ServiceNumber = styled.span`
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--color-gold);
+  opacity: 0.7;
+  display: block;
   margin-bottom: 20px;
-  
-  svg {
-    font-size: 24px;
-    color: var(--color-gold);
-  }
 `;
 
 const ServiceTitle = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.05rem;
   color: var(--color-text);
-  margin-bottom: 12px;
+  margin: 0 0 12px 0;
   font-weight: 600;
 `;
 
 const ServiceDescription = styled.p`
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.7;
   color: var(--color-muted);
   margin: 0;
 `;
 
+const services = [
+  {
+    id: '01',
+    title: 'Smart Automations',
+    description: 'Eliminate repetitive tasks and reduce errors with intelligent automation that frees your team to focus on what matters.',
+  },
+  {
+    id: '02',
+    title: 'Seamless Integrations',
+    description: 'Connect your product stack into a unified ecosystem where data flows effortlessly and decisions happen faster.',
+  },
+  {
+    id: '03',
+    title: 'Custom Web Solutions',
+    description: 'Custom-built websites and web applications that engage your audience and drive measurable business growth.',
+  },
+  {
+    id: '04',
+    title: 'Product Iteration & Maintenance',
+    description: 'Ship new features, polish existing flows, and keep your codebase healthy with steady, senior engineering support.',
+  },
+];
+
 const AboutMeSection = () => {
   return (
     <AboutMeWrapper id="about-me">
-      <Header>
+      <SectionHeader>
         <ImageOfMe src="bwprofile.png" alt="Jordan Allen" />
         <HeaderContent>
+          <Eyebrow>What We Build</Eyebrow>
           <Title>Our Services</Title>
           <Subtitle>
-            We partner with founders and operators to ship features, automate workflows, and keep products evolving. 
+            We partner with founders and operators to ship features, automate workflows, and keep products evolving.
             Every engagement is focused on building momentum for your product roadmap.
           </Subtitle>
         </HeaderContent>
-      </Header>
+      </SectionHeader>
 
       <ServicesGrid>
-        <ServiceCard>
-          <IconWrapper>
-            <FaRobot />
-          </IconWrapper>
-          <ServiceTitle>Smart Automations</ServiceTitle>
-          <ServiceDescription>
-            Transform your workflow with intelligent automation solutions that eliminate repetitive tasks, 
-            reduce errors, and free up your team to focus on strategic growth.
-          </ServiceDescription>
-        </ServiceCard>
-
-        <ServiceCard>
-          <IconWrapper>
-            <FaLink />
-          </IconWrapper>
-          <ServiceTitle>Seamless Integrations</ServiceTitle>
-          <ServiceDescription>
-            Connect your product stack into a unified ecosystem where data flows effortlessly, 
-            enabling richer experiences and faster decision-making.
-          </ServiceDescription>
-        </ServiceCard>
-
-        <ServiceCard>
-          <IconWrapper>
-            <FaLaptopCode />
-          </IconWrapper>
-          <ServiceTitle>Custom Web Solutions</ServiceTitle>
-          <ServiceDescription>
-            Create compelling digital experiences with custom-built websites and web applications 
-            that engage your audience and drive business growth.
-          </ServiceDescription>
-        </ServiceCard>
-
-        <ServiceCard>
-          <IconWrapper>
-            <FaLock />
-          </IconWrapper>
-          <ServiceTitle>Product Iteration & Maintenance</ServiceTitle>
-          <ServiceDescription>
-            Ship new features, polish existing flows, and keep your codebase healthy with 
-            steady, senior engineering support.
-          </ServiceDescription>
-        </ServiceCard>
+        {services.map(s => (
+          <ServiceCard key={s.id}>
+            <ServiceNumber>{s.id}</ServiceNumber>
+            <ServiceTitle>{s.title}</ServiceTitle>
+            <ServiceDescription>{s.description}</ServiceDescription>
+          </ServiceCard>
+        ))}
       </ServicesGrid>
     </AboutMeWrapper>
   );

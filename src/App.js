@@ -21,16 +21,17 @@ import { buildStructuredData } from './seo/structuredData';
 
 const GlobalStyles = createGlobalStyle`
   :root {
-    --color-ink: #0b0d14;
-    --color-ink-2: #0f121a;
+    --color-ink: #0a0d0a;
+    --color-ink-2: #0d110d;
     --color-gold: #F4C85F;
-    --color-text: #f5f7fa;
-    --color-muted: #a6adbb;
-    --card-bg: rgba(255, 255, 255, 0.06);
-    --border: rgba(255, 255, 255, 0.08);
-    --shadow-1: 0 10px 30px rgba(0, 0, 0, 0.25);
-    --shadow-2: 0 20px 50px rgba(0, 0, 0, 0.35);
-    --radius-lg: 18px;
+    --color-green: #2d5c2d;
+    --color-text: #f0f2ee;
+    --color-muted: #9aa394;
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.07);
+    --shadow-1: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow-2: 0 20px 50px rgba(0, 0, 0, 0.55);
+    --radius-lg: 20px;
     --radius-md: 12px;
   }
 
@@ -40,12 +41,10 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     margin: 0;
-    background: radial-gradient(1200px 600px at 10% -10%, #162032 0%, transparent 60%),
-                radial-gradient(800px 500px at 90% -20%, #1c273d 0%, transparent 55%),
-                linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-2) 100%);
+    background: var(--color-ink);
     color: var(--color-text);
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -55,10 +54,18 @@ const GlobalStyles = createGlobalStyle`
     color: #1a1a1a;
   }
 
-  h1, h2, h3, h4 {
+  h1 {
     font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
     margin: 0 0 0.4em 0;
+    line-height: 1.15;
+  }
+
+  h2, h3, h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin: 0 0 0.4em 0;
     line-height: 1.2;
+    letter-spacing: -0.3px;
   }
 
   p {
@@ -73,10 +80,10 @@ const GlobalStyles = createGlobalStyle`
 
 const theme = {
   colors: {
-    ink: '#0b0d14',
+    ink: '#0a0d0a',
     gold: '#F4C85F',
-    text: '#f5f7fa',
-    muted: '#a6adbb',
+    text: '#f0f2ee',
+    muted: '#9aa394',
   },
 };
 
