@@ -100,7 +100,7 @@ const CTASection = () => {
         Modern product development, automations, and integrations for teams who need to ship fast. Thoughtfully executed, elegantly delivered.
       </Heading3>
       <ButtonRow>
-        <ButtonPrimary
+        {/* <ButtonPrimary
           to="pricing-table"
           smooth={true}
           duration={500}
@@ -109,7 +109,7 @@ const CTASection = () => {
           offset={-80}
         >
           See plans
-        </ButtonPrimary>
+        </ButtonPrimary> */}
 
         <ButtonSecondary
           href="https://calendly.com/jordan-goodly/30min"
