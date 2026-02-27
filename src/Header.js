@@ -10,10 +10,10 @@ const HeaderWrapper = styled.header`
   top: 0;
   z-index: 100;
   padding: 18px 0;
-  backdrop-filter: saturate(120%) blur(10px);
-  background: linear-gradient(180deg, rgba(10, 12, 20, 0.75) 0%, rgba(10, 12, 20, 0.35) 100%);
+  backdrop-filter: saturate(120%) blur(12px);
+  background: rgba(10, 13, 10, 0.82);
   border-bottom: 1px solid var(--border);
-  margin-bottom: 40px;
+  margin-bottom: 0;
 `;
 
 const Row = styled.div`
@@ -56,7 +56,7 @@ const Tab = styled.span`
   margin: 0 6px;
   color: var(--color-text);
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   letter-spacing: 0.2px;
   transition: color 0.2s ease;
@@ -100,7 +100,7 @@ const DropdownToggle = styled.button`
   margin: 0 6px;
   color: var(--color-text);
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   letter-spacing: 0.2px;
   transition: color 0.2s ease;
@@ -138,7 +138,7 @@ const DropdownMenu = styled.div`
   position: absolute;
   top: 36px;
   left: 0;
-  background: linear-gradient(180deg, rgba(13,16,24,0.96) 0%, rgba(13,16,24,0.92) 100%);
+  background: rgba(11, 15, 11, 0.97);
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow-2);
@@ -152,7 +152,7 @@ const DropdownItem = styled.span`
   display: block;
   padding: 10px 12px;
   color: var(--color-text);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   border-radius: 8px;
   cursor: pointer;
 
@@ -183,7 +183,7 @@ const MobileMenu = styled.div`
   position: absolute;
   right: 16px;
   top: 64px;
-  background: linear-gradient(180deg, rgba(13,16,24,0.96) 0%, rgba(13,16,24,0.92) 100%);
+  background: rgba(11, 15, 11, 0.97);
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow-2);
@@ -196,7 +196,7 @@ const MobileMenu = styled.div`
   a, span {
     padding: 10px 12px;
     color: var(--color-text);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     border-radius: 8px;
   }
 
