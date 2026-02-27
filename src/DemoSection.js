@@ -147,7 +147,6 @@ const tabs = [
 
 const DemoSection = () => {
   const [activeTab, setActiveTab] = useState('tab1');
-  const active = tabs.find(t => t.id === activeTab);
 
   return (
     <DemoSectionWrapper>
