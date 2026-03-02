@@ -15,7 +15,6 @@ import './App.css';
 import SupportForm from './SupportForm';
 import ITLanding from './ITLanding';
 import WebLanding from './WebLanding';
-import PrivacyPolicy from './PrivacyPolicy';
 import SeoHead from './seo/SeoHead';
 import { routeMeta } from './seo/routeMeta';
 import { buildStructuredData } from './seo/structuredData';
@@ -119,8 +118,6 @@ const LocationSeo = () => {
     routeKey = 'webServices';
   } else if (pathname === '/support') {
     routeKey = 'support';
-  } else if (pathname === '/privacy') {
-    routeKey = 'privacy';
   } else if (pathname === '/blog') {
     routeKey = 'blogIndex';
   }
@@ -155,7 +152,6 @@ const App = () => {
               <Route path="/support" element={<SupportForm />} />
               <Route path="/it-services" element={<ITLanding />} />
               <Route path="/web-services" element={<WebLanding />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
             </Routes>
 
             <Footer />

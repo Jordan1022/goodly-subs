@@ -128,16 +128,6 @@ const buildStructuredData = ({ routeKey, post }) => {
     ];
   }
 
-  if (routeKey === 'privacy') {
-    return [
-      ...shared,
-      createBreadcrumbData([
-        { name: 'Home', url: SITE_URL },
-        { name: 'Privacy Policy', url: routeMeta.privacy.canonical },
-      ]),
-    ];
-  }
-
   if (routeKey === 'blogIndex') {
     return [
       ...shared,

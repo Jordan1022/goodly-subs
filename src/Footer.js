@@ -44,7 +44,6 @@ const Footer = () => {
     <FooterWrapper>
       <Left>© {new Date().getFullYear()} Goodly Development</Left>
       <Right>
-        <LinkA href="/privacy">Privacy</LinkA>
         <LinkA href="https://www.linkedin.com/in/jordan-allen-gd/" target="_blank" rel="noopener noreferrer">
           LinkedIn
         </LinkA>

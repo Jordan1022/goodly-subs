@@ -50,12 +50,6 @@ const routeMeta = {
       'Submit product support, change requests, and development tasks through the Goodly Development support portal.',
     pathname: '/support',
   }),
-  privacy: createRouteMeta({
-    title: 'Privacy Policy | OpenClaw by Goodly Development',
-    description:
-      'Privacy policy for the OpenClaw Notion integration operated by Goodly Development.',
-    pathname: '/privacy',
-  }),
   blogIndex: createRouteMeta({
     title: 'Goodly Development Blog',
     description:
