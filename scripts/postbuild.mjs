@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const buildDir = path.resolve(__dirname, '..', 'build');
 
 // Routes that need their own index.html (must match enforce-seo-html.mjs)
-const ROUTE_DIRS = ['it-services', 'web-services', 'support', 'blog', 'privacy'];
+const ROUTE_DIRS = ['it-services', 'web-services', 'support', 'blog'];
 
 async function main() {
   if (!process.env.VERCEL) {
