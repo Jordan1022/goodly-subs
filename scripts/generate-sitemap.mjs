@@ -10,7 +10,7 @@ const SITE_URL = 'https://goodlydevelopment.com';
 const sitemapPath = path.join(projectRoot, 'public', 'sitemap.xml');
 const blogIndexPath = path.join(projectRoot, 'public', 'content', 'blog-index.json');
 
-const staticRoutes = ['/', '/it-services', '/web-services', '/blog', '/support'];
+const staticRoutes = ['/', '/it-services', '/web-services', '/blog', '/support', '/privacy'];
 
 const toAbsoluteUrl = (pathname) => (pathname === '/' ? SITE_URL : `${SITE_URL}${pathname}`);
 

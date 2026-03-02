@@ -126,6 +126,14 @@ const routes = [
     structuredData: [organizationData, websiteData],
   },
   {
+    file: path.join('privacy', 'index.html'),
+    pathname: '/privacy',
+    title: 'Privacy Policy | OpenClaw by Goodly Development',
+    description: 'Privacy policy for the OpenClaw Notion integration operated by Goodly Development.',
+    type: 'website',
+    structuredData: [organizationData, websiteData],
+  },
+  {
     file: path.join('blog', 'index.html'),
     pathname: '/blog',
     title: 'Goodly Development Blog',
