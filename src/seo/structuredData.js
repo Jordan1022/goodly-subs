@@ -138,6 +138,36 @@ const buildStructuredData = ({ routeKey, post }) => {
     ];
   }
 
+  if (routeKey === 'privacyPolicy') {
+    return [
+      ...shared,
+      createBreadcrumbData([
+        { name: 'Home', url: SITE_URL },
+        { name: 'Privacy Policy', url: routeMeta.privacyPolicy.canonical },
+      ]),
+    ];
+  }
+
+  if (routeKey === 'termsConditions') {
+    return [
+      ...shared,
+      createBreadcrumbData([
+        { name: 'Home', url: SITE_URL },
+        { name: 'Terms and Conditions', url: routeMeta.termsConditions.canonical },
+      ]),
+    ];
+  }
+
+  if (routeKey === 'smsConsent') {
+    return [
+      ...shared,
+      createBreadcrumbData([
+        { name: 'Home', url: SITE_URL },
+        { name: 'SMS Consent', url: routeMeta.smsConsent.canonical },
+      ]),
+    ];
+  }
+
   if (routeKey === 'blogPost' && post) {
     return [
       ...shared,

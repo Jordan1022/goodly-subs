@@ -1,6 +1,7 @@
 // Footer.js
 import React from 'react';
 import styled from 'styled-components';
+import { Link as RouterLink } from 'react-router-dom';
 
 const FooterWrapper = styled.footer`
   padding: 28px 0 40px 0;
@@ -25,10 +26,26 @@ const Left = styled.div`
 const Right = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
+
+  @media (max-width: 640px) {
+    justify-content: center;
+  }
 `;
 
 const LinkA = styled.a`
+  color: var(--color-text);
+  font-size: 0.95rem;
+  opacity: 0.9;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  &:hover {
+    color: var(--color-gold);
+    opacity: 1;
+  }
+`;
+
+const RouterLinkA = styled(RouterLink)`
   color: var(--color-text);
   font-size: 0.95rem;
   opacity: 0.9;
@@ -44,6 +61,9 @@ const Footer = () => {
     <FooterWrapper>
       <Left>© {new Date().getFullYear()} Goodly Development</Left>
       <Right>
+        <RouterLinkA to="/privacy-policy">Privacy</RouterLinkA>
+        <RouterLinkA to="/terms-and-conditions">Terms</RouterLinkA>
+        <RouterLinkA to="/sms-consent">SMS Consent</RouterLinkA>
         <LinkA href="https://www.linkedin.com/in/jordan-allen-gd/" target="_blank" rel="noopener noreferrer">
           LinkedIn
         </LinkA>

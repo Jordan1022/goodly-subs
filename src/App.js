@@ -18,6 +18,7 @@ import WebLanding from './WebLanding';
 import SeoHead from './seo/SeoHead';
 import { routeMeta } from './seo/routeMeta';
 import { buildStructuredData } from './seo/structuredData';
+import { PrivacyPolicy, SmsConsent, TermsAndConditions } from './LegalPages';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -120,6 +121,12 @@ const LocationSeo = () => {
     routeKey = 'support';
   } else if (pathname === '/blog') {
     routeKey = 'blogIndex';
+  } else if (pathname === '/privacy-policy') {
+    routeKey = 'privacyPolicy';
+  } else if (pathname === '/terms-and-conditions') {
+    routeKey = 'termsConditions';
+  } else if (pathname === '/sms-consent') {
+    routeKey = 'smsConsent';
   }
 
   return <SeoHead meta={routeMeta[routeKey]} structuredData={buildStructuredData({ routeKey })} />;
@@ -152,6 +159,9 @@ const App = () => {
               <Route path="/support" element={<SupportForm />} />
               <Route path="/it-services" element={<ITLanding />} />
               <Route path="/web-services" element={<WebLanding />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+              <Route path="/sms-consent" element={<SmsConsent />} />
             </Routes>
 
             <Footer />

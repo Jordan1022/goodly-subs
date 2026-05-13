@@ -57,6 +57,24 @@ const routeMeta = {
     pathname: '/blog',
     type: 'blog',
   }),
+  privacyPolicy: createRouteMeta({
+    title: 'Privacy Policy | Goodly Development',
+    description:
+      'Goodly Development privacy policy, including OpenClaw Messaging SMS data usage, retention, sharing, and opt-out details.',
+    pathname: '/privacy-policy',
+  }),
+  termsConditions: createRouteMeta({
+    title: 'Terms and Conditions | Goodly Development',
+    description:
+      'Goodly Development terms and conditions, including OpenClaw Messaging program details, message frequency, rates, STOP, and HELP instructions.',
+    pathname: '/terms-and-conditions',
+  }),
+  smsConsent: createRouteMeta({
+    title: 'SMS Consent | Goodly Development',
+    description:
+      'OpenClaw Messaging SMS consent disclosure explaining how authorized users opt in to operational text messages.',
+    pathname: '/sms-consent',
+  }),
 };
 
 const stripHtml = (value = '') => value.replace(/<[^>]*>/g, '').trim();
