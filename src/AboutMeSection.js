@@ -122,8 +122,8 @@ const services = [
   },
   {
     id: '03',
-    title: 'Custom Web Solutions',
-    description: 'Custom-built websites and web applications that engage your audience and drive measurable business growth.',
+    title: 'Full-Stack Development',
+    description: 'We build fast websites, dashboards, and web apps with clean front-end code, practical back-end integrations, and UX that supports the business.',
   },
   {
     id: '04',
