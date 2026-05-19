@@ -27,22 +27,10 @@ const createRouteMeta = ({ title, description, pathname, type = 'website' }) => 
 
 const routeMeta = {
   home: createRouteMeta({
-    title: 'Goodly Development | Product, IT, and Web Services',
+    title: 'Goodly Development | Product Development and Automation',
     description:
-      'Goodly Development builds software products, provides managed IT services, and delivers high-performance web development for growing teams.',
+      'Goodly Development builds software products, automations, and integrations for growing teams.',
     pathname: '/',
-  }),
-  itServices: createRouteMeta({
-    title: 'Managed IT Services | Goodly Development',
-    description:
-      'Managed IT, endpoint support, cloud operations, network infrastructure, and backup/recovery services for reliable business operations.',
-    pathname: '/it-services',
-  }),
-  webServices: createRouteMeta({
-    title: 'Web Development Services | Goodly Development',
-    description:
-      'Custom websites, WordPress and Webflow builds, web app development, performance optimization, and ongoing maintenance.',
-    pathname: '/web-services',
   }),
   support: createRouteMeta({
     title: 'Support Requests | Goodly Development',

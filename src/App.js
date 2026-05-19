@@ -1,7 +1,7 @@
 // App.js
 import React from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './Header';
 import CTASection from './CTASection';
 import AboutMeSection from './AboutMeSection';
@@ -13,8 +13,6 @@ import BlogList from './BlogList';
 import BlogPost from './BlogPost';
 import './App.css';
 import SupportForm from './SupportForm';
-import ITLanding from './ITLanding';
-import WebLanding from './WebLanding';
 import SeoHead from './seo/SeoHead';
 import { routeMeta } from './seo/routeMeta';
 import { buildStructuredData } from './seo/structuredData';
@@ -113,11 +111,7 @@ const LocationSeo = () => {
 
   let routeKey = 'home';
 
-  if (pathname === '/it-services') {
-    routeKey = 'itServices';
-  } else if (pathname === '/web-services') {
-    routeKey = 'webServices';
-  } else if (pathname === '/support') {
+  if (pathname === '/support') {
     routeKey = 'support';
   } else if (pathname === '/blog') {
     routeKey = 'blogIndex';
@@ -157,8 +151,8 @@ const App = () => {
               <Route path="/blog" element={<BlogList />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/support" element={<SupportForm />} />
-              <Route path="/it-services" element={<ITLanding />} />
-              <Route path="/web-services" element={<WebLanding />} />
+              <Route path="/it-services" element={<Navigate to="/" replace />} />
+              <Route path="/web-services" element={<Navigate to="/" replace />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
               <Route path="/sms-consent" element={<SmsConsent />} />

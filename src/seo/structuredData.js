@@ -35,24 +35,6 @@ const serviceListData = {
       },
       url: SITE_URL,
     },
-    {
-      '@type': 'Service',
-      name: 'Managed IT Services',
-      provider: {
-        '@type': 'Organization',
-        name: SITE_NAME,
-      },
-      url: toAbsoluteUrl('/it-services'),
-    },
-    {
-      '@type': 'Service',
-      name: 'Web Development Services',
-      provider: {
-        '@type': 'Organization',
-        name: SITE_NAME,
-      },
-      url: toAbsoluteUrl('/web-services'),
-    },
   ],
 };
 
@@ -67,55 +49,11 @@ const createBreadcrumbData = (items) => ({
   })),
 });
 
-const serviceData = (name, description, pathname) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name,
-  description,
-  provider: {
-    '@type': 'Organization',
-    name: SITE_NAME,
-    url: SITE_URL,
-  },
-  areaServed: 'US',
-  url: toAbsoluteUrl(pathname),
-});
-
 const buildStructuredData = ({ routeKey, post }) => {
   const shared = [organizationData, websiteData];
 
   if (routeKey === 'home') {
     return [...shared, serviceListData];
-  }
-
-  if (routeKey === 'itServices') {
-    return [
-      ...shared,
-      serviceData(
-        'Managed IT Services',
-        'Managed IT, endpoint support, cloud operations, help desk, network infrastructure, and backup/recovery.',
-        '/it-services'
-      ),
-      createBreadcrumbData([
-        { name: 'Home', url: SITE_URL },
-        { name: 'IT Services', url: routeMeta.itServices.canonical },
-      ]),
-    ];
-  }
-
-  if (routeKey === 'webServices') {
-    return [
-      ...shared,
-      serviceData(
-        'Web Development Services',
-        'Custom websites, web applications, platform development, optimization, and ongoing security maintenance.',
-        '/web-services'
-      ),
-      createBreadcrumbData([
-        { name: 'Home', url: SITE_URL },
-        { name: 'Web Services', url: routeMeta.webServices.canonical },
-      ]),
-    ];
   }
 
   if (routeKey === 'support') {

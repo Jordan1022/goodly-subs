@@ -14,6 +14,7 @@ jest.mock(
     return {
       BrowserRouter: ({ children }) => <>{children}</>,
       Link,
+      Navigate: () => null,
       Route: () => null,
       Routes: ({ children }) => {
         const pathname = globalThis.window.location.pathname;

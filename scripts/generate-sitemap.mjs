@@ -12,8 +12,6 @@ const blogIndexPath = path.join(projectRoot, 'public', 'content', 'blog-index.js
 
 const staticRoutes = [
   '/',
-  '/it-services',
-  '/web-services',
   '/blog',
   '/support',
   '/privacy-policy',

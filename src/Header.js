@@ -85,83 +85,6 @@ const Tab = styled.span`
   }
 `;
 
-const Dropdown = styled.div`
-  position: relative;
-  display: inline-block;
-
-  &:hover > div {
-    display: block;
-  }
-`;
-
-const DropdownToggle = styled.button`
-  position: relative;
-  padding: 8px 2px;
-  margin: 0 6px;
-  color: var(--color-text);
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  transition: color 0.2s ease;
-  border: 0;
-  background: transparent;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 2px;
-    width: 0;
-    height: 2px;
-    background: var(--color-gold);
-    transition: width 0.25s ease;
-  }
-
-  &:hover {
-    color: var(--color-gold);
-  }
-
-  &:hover:after {
-    width: 100%;
-  }
-
-  @media (min-width: 760px) {
-    font-size: 1rem;
-  }
-`;
-
-const DropdownMenu = styled.div`
-  position: absolute;
-  top: 36px;
-  left: 0;
-  background: rgba(11, 15, 11, 0.97);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow-2);
-  padding: 8px;
-  display: none;
-  min-width: 220px;
-  z-index: 130;
-`;
-
-const DropdownItem = styled.span`
-  display: block;
-  padding: 10px 12px;
-  color: var(--color-text);
-  font-family: 'Inter', sans-serif;
-  border-radius: 8px;
-  cursor: pointer;
-
-  &:hover {
-    background: rgba(244, 200, 95, 0.08);
-    color: var(--color-gold);
-  }
-`;
-
 const MenuButton = styled.button`
   display: none;
   background: transparent;
@@ -245,14 +168,13 @@ const Header = () => {
           <Logo src="GoodlyG.svg" alt="Goodly Development logo" />
         </LogoLink>
         <Navigation>
-          <Dropdown>
-            <DropdownToggle>Services</DropdownToggle>
-            <DropdownMenu>
-              <DropdownItem as={RouterLink} to="/">Development Services</DropdownItem>
-              <DropdownItem as={RouterLink} to="/it-services">IT Services</DropdownItem>
-              <DropdownItem as={RouterLink} to="/web-services">Web Services</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
+          <Tab
+            as="a"
+            href="/#about-me"
+            onClick={(event) => handleScrollLinkClick(event, 'about-me')}
+          >
+            Services
+          </Tab>
           {/* <Tab onClick={() => handleScrollLinkClick('pricing-table')}>Plans</Tab> */}
           <Tab
             as="a"
@@ -270,10 +192,7 @@ const Header = () => {
       </Row>
       {menuOpen && (
         <MobileMenu>
-          <span>Services</span>
           <a href="/#about-me" onClick={(event) => handleScrollLinkClick(event, 'about-me')}>Development Services</a>
-          <RouterLink to="/it-services" onClick={closeMenu}>IT Services</RouterLink>
-          <RouterLink to="/web-services" onClick={closeMenu}>Web Services</RouterLink>
           {/* <span onClick={() => handleScrollLinkClick('pricing-table')}>Plans</span> */}
           <a href="/#testimony" onClick={(event) => handleScrollLinkClick(event, 'testimony')}>Testimonials</a>
           <RouterLink to="/blog" onClick={closeMenu}>Blog</RouterLink>

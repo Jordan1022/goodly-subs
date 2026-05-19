@@ -2,23 +2,20 @@
 
 ## Overview
 
-Goodly Development delivers software product development, managed IT, and web platform services.
-The business supports teams that need reliable implementation, ongoing technical operations, and modern web performance.
+Goodly Development delivers software product development, automations, and integrations.
+The business supports teams that need reliable implementation and practical technical execution.
 
 ## Primary URLs
 
 - Home: https://goodlydevelopment.com/
-- IT services: https://goodlydevelopment.com/it-services
-- Web services: https://goodlydevelopment.com/web-services
 - Support portal: https://goodlydevelopment.com/support
 - Blog: https://goodlydevelopment.com/blog
 
 ## Operating Scope
 
 - Product development, automations, and integrations
-- Managed IT infrastructure and endpoint support
-- WordPress/Webflow/web app development
-- Performance, security, and maintenance operations
+- Full-stack development
+- Practical support for technical workflows
 
 ## Contact
 

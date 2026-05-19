@@ -39,9 +39,9 @@ const routes = [
   {
     file: 'index.html',
     pathname: '/',
-    title: 'Goodly Development | Product, IT, and Web Services',
+    title: 'Goodly Development | Product Development and Automation',
     description:
-      'Goodly Development builds software products, provides managed IT services, and delivers high-performance web development for growing teams.',
+      'Goodly Development builds software products, automations, and integrations for growing teams.',
     type: 'website',
     structuredData: [
       organizationData,
@@ -56,63 +56,7 @@ const routes = [
             provider: { '@type': 'Organization', name: SITE_NAME },
             url: SITE_URL,
           },
-          {
-            '@type': 'Service',
-            name: 'Managed IT Services',
-            provider: { '@type': 'Organization', name: SITE_NAME },
-            url: toAbsoluteUrl('/it-services'),
-          },
-          {
-            '@type': 'Service',
-            name: 'Web Development Services',
-            provider: { '@type': 'Organization', name: SITE_NAME },
-            url: toAbsoluteUrl('/web-services'),
-          },
         ],
-      },
-    ],
-  },
-  {
-    file: path.join('it-services', 'index.html'),
-    pathname: '/it-services',
-    title: 'Managed IT Services | Goodly Development',
-    description:
-      'Managed IT, endpoint support, cloud operations, network infrastructure, and backup/recovery services for reliable business operations.',
-    type: 'website',
-    structuredData: [
-      organizationData,
-      websiteData,
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: 'Managed IT Services',
-        description:
-          'Managed IT, endpoint support, cloud operations, help desk, network infrastructure, and backup/recovery.',
-        provider: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
-        areaServed: 'US',
-        url: toAbsoluteUrl('/it-services'),
-      },
-    ],
-  },
-  {
-    file: path.join('web-services', 'index.html'),
-    pathname: '/web-services',
-    title: 'Web Development Services | Goodly Development',
-    description:
-      'Custom websites, WordPress and Webflow builds, web app development, performance optimization, and ongoing maintenance.',
-    type: 'website',
-    structuredData: [
-      organizationData,
-      websiteData,
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: 'Web Development Services',
-        description:
-          'Custom websites, web applications, platform development, optimization, and ongoing security maintenance.',
-        provider: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
-        areaServed: 'US',
-        url: toAbsoluteUrl('/web-services'),
       },
     ],
   },
